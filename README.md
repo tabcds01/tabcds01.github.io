@@ -1,180 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Well Yuen Garments Ltd | Global Manufacturing Excellence</title>
+    <title>Well Yuen Garments Ltd | 華源制衣有限公司</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary-dark: #12141d;
-            --accent-gold: #c5a059;
-            --text-gray: #6c757d;
-            --soft-bg: #fdfdfd;
+            --primary-dark: #12141a;
+            --accent-gold: #b08d57;
+            --overlay-dark: rgba(0, 0, 0, 0.7);
         }
 
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--soft-bg); color: var(--primary-dark); }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        body { font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; transition: 0.3s; }
+        
+        /* 語言切換核心樣式 */
+        [lang="en"] .lang-zh { display: none !important; }
+        [lang="zh"] .lang-en { display: none !important; }
 
-        /* Navigation */
-        .navbar { background: rgba(18, 20, 29, 0.95); backdrop-filter: blur(10px); padding: 20px 0; }
-        .navbar-brand { font-weight: 700; letter-spacing: 2px; font-size: 1.5rem; }
-        .nav-link { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-left: 20px; color: #fff !important; }
+        /* 導航欄樣式 */
+        .navbar { background: rgba(18, 20, 26, 0.98); padding: 15px 0; }
+        .lang-switch .btn { color: #fff; border: 1px solid rgba(255,255,255,0.3); font-size: 0.8rem; padding: 4px 12px; margin-left: 5px; }
+        .lang-switch .btn.active { background: var(--accent-gold); border-color: var(--accent-gold); }
 
-        /* Hero Section */
-        .hero-split { height: 90vh; display: flex; align-items: center; background: var(--primary-dark); color: white; overflow: hidden; position: relative; }
-        .hero-content { z-index: 2; }
-        .hero-image { 
-            position: absolute; right: 0; top: 0; width: 50%; height: 100%; 
-            background: url('https://images.unsplash.com/photo-1551135049-8a33b5883817?auto=format&fit=crop&q=80&w=1200'); 
-            background-size: cover; clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+        /* 內容樣式 */
+        .hero-section { 
+            height: 100vh; 
+            background: linear-gradient(var(--overlay-dark), var(--overlay-dark)), 
+                        url('https://images.unsplash.com/photo-1558444479-c84824d2936e?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; background-position: center; display: flex; align-items: center; color: white;
         }
 
-        /* Bento Grid Style for Factories */
-        .factory-card { background: white; border: 1px solid #eee; padding: 40px; height: 100%; transition: 0.4s; }
-        .factory-card:hover { border-color: var(--accent-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .tag { color: var(--accent-gold); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 10px; }
-
-        /* Stats Section */
-        .stat-number { font-size: 3rem; font-family: 'Playfair Display'; color: var(--accent-gold); margin-bottom: 0; }
-        .stat-label { font-size: 0.8rem; text-transform: uppercase; color: var(--text-gray); letter-spacing: 1px; }
-
-        /* Section Headlines */
-        .section-title { position: relative; padding-bottom: 20px; margin-bottom: 40px; }
-        .section-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 60px; height: 3px; background: var(--accent-gold); }
-
-        .btn-gold { background: var(--accent-gold); color: white; border-radius: 0; padding: 15px 35px; border: none; font-weight: 600; }
-        .btn-gold:hover { background: #b08d4a; color: white; }
+        .section-padding { padding: 100px 0; }
+        .feature-card { background: #f8f9fa; border: none; padding: 40px; height: 100%; transition: 0.3s; }
+        .feature-card:hover { background: #fff; box-shadow: 0 15px 40px rgba(0,0,0,0.1); transform: translateY(-10px); }
+        .btn-gold { background: var(--accent-gold); color: white; border-radius: 0; padding: 15px 40px; text-transform: uppercase; font-weight: 600; border: none; }
+        
+        .parallax-banner {
+            padding: 120px 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; background-attachment: fixed; color: white; text-align: center;
+        }
     </style>
 </head>
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<body lang="en"> <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">WELL YUEN</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">Heritage</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#facilities">Facilities</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#innovation">Innovation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Inquiry</a></li>
-                </ul>
+            <a class="navbar-brand fw-bold" href="#">
+                <span class="lang-en">WELL YUEN</span>
+                <span class="lang-zh">華源制衣</span>
+            </a>
+            <div class="ms-auto d-flex align-items: center;">
+                <div class="lang-switch">
+                    <button class="btn btn-sm active" onclick="setLanguage('en')">EN</button>
+                    <button class="btn btn-sm" onclick="setLanguage('zh')">中文</button>
+                </div>
             </div>
         </div>
     </nav>
 
-    <header class="hero-split">
-        <div class="container hero-content">
-            <div class="row">
-                <div class="col-lg-6">
-                    <span class="tag" style="color: #fff;">ESTABLISHED 1991</span>
-                    <h1 class="display-2 mb-4">Precision Manufacturing for Global Brands</h1>
-                    <p class="lead mb-5 text-white-50">30+ years of excellence in high-quality denim, knitwear, and functional sports apparel. Exporting to 20+ countries with advanced smart-factory solutions.</p>
-                    <a href="#contact" class="btn btn-gold">PARTNER WITH US</a>
-                </div>
+    <header class="hero-section">
+        <div class="container text-center">
+            <div class="lang-en">
+                <p class="text-uppercase tracking-widest mb-3" style="color: var(--accent-gold); letter-spacing: 4px;">Since 1991</p>
+                <h1 class="display-1 fw-bold mb-4">Well Yuen Garments Ltd.</h1>
+                <p class="fs-4 text-white-50 mb-5">Premier Garment Manufacturing & Export Excellence</p>
             </div>
+            <div class="lang-zh">
+                <p class="text-uppercase tracking-widest mb-3" style="color: var(--accent-gold); letter-spacing: 4px;">始於 1991 年</p>
+                <h1 class="display-2 fw-bold mb-4">華源制衣有限公司</h1>
+                <p class="fs-3 text-white-50 mb-5">專業服裝製造與出口專家 · 橫跨三十載的品質傳承</p>
+            </div>
+            <a href="#about" class="btn btn-gold">
+                <span class="lang-en">Explore More</span>
+                <span class="lang-zh">探索更多</span>
+            </a>
         </div>
-        <div class="hero-image d-none d-lg-block"></div>
     </header>
 
-    <section id="about" class="py-5 bg-white">
-        <div class="container py-5">
+    <section id="about" class="section-padding">
+        <div class="container">
             <div class="row g-5 align-items-center">
-                <div class="col-lg-4">
-                    <div class="stat-item mb-5">
-                        <p class="stat-number">30+</p>
-                        <p class="stat-label">Years Industrial Experience</p>
-                    </div>
-                    <div class="stat-item mb-5">
-                        <p class="stat-number">20+</p>
-                        <p class="stat-label">International Markets Served</p>
-                    </div>
-                    <div class="stat-item">
-                        <p class="stat-number">BSCI</p>
-                        <p class="stat-label">Certified Social Compliance</p>
-                    </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1524292332709-b33366a7f139?auto=format&fit=crop&q=80&w=1000" class="img-fluid shadow-lg" alt="Factory">
                 </div>
-                <div class="col-lg-8 border-start ps-lg-5">
-                    <h2 class="section-title">Our Professional Legacy</h2>
-                    <p class="fs-5 text-muted mb-4">Well Yuen Garments Ltd. is a premier clothing manufacturer and exporter in China. We specialize in jackets, coats, jeans, sweaters, and all kinds of knitted & woven garments.</p>
-                    <p class="text-muted">Our experienced merchandiser team is deeply familiar with global market requirements regarding fabric innovation, price competitiveness, and strict on-time delivery. We bridge the gap between complex design requirements and high-efficiency production.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="facilities" class="py-5">
-        <div class="container py-5">
-            <h2 class="section-title text-center mx-auto mb-5" style="max-width: 600px;">Regional Production Centers</h2>
-            <div class="row g-4 mt-4">
-                <div class="col-md-6">
-                    <div class="factory-card">
-                        <span class="tag">Regional Hub</span>
-                        <h3>Guangdong Facility</h3>
-                        <p class="text-muted mt-3">Our specialized center for **Denim and Cardigans**. Equipped with specialized lines for heavy woven denim and delicate knit structures.</p>
+                <div class="col-lg-6">
+                    <div class="lang-en">
+                        <h2 class="display-5 fw-bold mb-4">Corporate Heritage</h2>
+                        <p class="lead">Established in 1991, Well Yuen Garments Ltd. is a clothing manufacturer with over 30 years of experience.</p>
+                        <p class="text-muted">We provide high-quality garments to various sectors at highly competitive prices. Specializing in jackets, coats, jeans, sweaters, and all kinds of knitted & woven garments.</p>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="factory-card">
-                        <span class="tag">Regional Hub</span>
-                        <h3>Fujian Hub</h3>
-                        <p class="text-muted mt-3">Dedicated to **Woven and Knits**. A multi-factory industrial complex focused on lifestyle and functional sports garments.</p>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="factory-card text-center" style="background: var(--primary-dark); color: white;">
-                        <span class="tag">Infrastructure</span>
-                        <h3 class="text-white">4,000 SQM Industrial Complex</h3>
-                        <p class="text-white-50">Introducing the <strong>Intelligent Hanger System</strong> to maximize production capacity and real-time QC monitoring.</p>
+                    <div class="lang-zh">
+                        <h2 class="display-5 fw-bold mb-4">公司傳承</h2>
+                        <p class="lead">華源制衣有限公司成立於 1991 年，擁有超過 30 年的服裝製造資深經驗。</p>
+                        <p class="text-muted">我們致力於以極具競爭力的價格為各行業提供高品質服飾。專業生產夾克、大衣、牛仔褲、毛衣及各類針織與梭織服裝。</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-5 bg-white">
-        <div class="container py-5">
-            <div class="row">
-                <div class="col-lg-4">
-                    <h2 class="section-title">Global Inquiries</h2>
-                    <p class="text-muted">Currently serving markets in the UK, Netherlands, Finland, Germany, Spain, and Australia.</p>
-                    <div class="mt-5">
-                        <p class="mb-1 fw-bold">Headquarters</p>
-                        <p class="text-muted">Guangdong & Fujian Provinces, China</p>
+    <section class="section-padding bg-light">
+        <div class="container text-center">
+            <h2 class="mb-5 fw-bold">
+                <span class="lang-en">Production Hubs</span>
+                <span class="lang-zh">生產基地</span>
+            </h2>
+            <div class="row g-4 text-start">
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h4 class="fw-bold mb-3">
+                            <span class="lang-en">Guangdong Facility</span>
+                            <span class="lang-zh">廣東生產中心</span>
+                        </h4>
+                        <p class="text-muted">
+                            <span class="lang-en">Specialized in heavy denim production and premium cardigan knitwear.</span>
+                            <span class="lang-zh">專注於高品質牛仔服裝生產以及精細的針織開衫系列。</span>
+                        </p>
                     </div>
                 </div>
-                <div class="col-lg-8">
-                    <form class="row g-4">
-                        <div class="col-md-6">
-                            <label class="small fw-bold text-uppercase">Full Name</label>
-                            <input type="text" class="form-control form-control-lg border-0 bg-light" placeholder="e.g. John Smith">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="small fw-bold text-uppercase">Company Email</label>
-                            <input type="email" class="form-control form-control-lg border-0 bg-light" placeholder="email@company.com">
-                        </div>
-                        <div class="col-12">
-                            <label class="small fw-bold text-uppercase">Project Details</label>
-                            <textarea class="form-control form-control-lg border-0 bg-light" rows="4" placeholder="Describe your manufacturing needs..."></textarea>
-                        </div>
-                        <div class="col-12 text-end">
-                            <button type="submit" class="btn btn-gold px-5">SEND PROPOSAL</button>
-                        </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h4 class="fw-bold mb-3">
+                            <span class="lang-en">Fujian Hub</span>
+                            <span class="lang-zh">福建生產中心</span>
+                        </h4>
+                        <p class="text-muted">
+                            <span class="lang-en">Focused on woven and knit garments for global lifestyle and sport brands.</span>
+                            <span class="lang-zh">專為全球休閒與運動品牌提供各類梭織及針織服飾。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="parallax-banner">
+        <div class="container">
+            <h2 class="display-4 fw-bold">
+                <span class="lang-en">4,000 SQM Industrial Complex</span>
+                <span class="lang-zh">4,000 平方米現代化工廠</span>
+            </h2>
+            <p class="fs-5 mt-4 opacity-75">
+                <span class="lang-en">Equipped with Intelligent Hanger Systems for maximum efficiency.</span>
+                <span class="lang-zh">引入智能吊掛系統，實現產能與生產效率的極大化。</span>
+            </p>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h2 class="fw-bold">
+                        <span class="lang-en">Inquiry</span>
+                        <span class="lang-zh">業務諮詢</span>
+                    </h2>
+                    <p class="text-muted mt-3">
+                        <span class="lang-en">Servicing over 20 countries including UK, Netherlands, Germany, and Australia.</span>
+                        <span class="lang-zh">產品遠銷荷蘭、英國、芬蘭、德國、西班牙和澳洲等 20 多個國家。</span>
+                    </p>
+                </div>
+                <div class="col-lg-7">
+                    <form class="row g-3">
+                        <div class="col-md-6"><input type="text" class="form-control" placeholder="Name 姓名"></div>
+                        <div class="col-md-6"><input type="email" class="form-control" placeholder="Email 電郵"></div>
+                        <div class="col-12"><textarea class="form-control" rows="4" placeholder="Message 需求"></textarea></div>
+                        <div class="col-12"><button type="submit" class="btn btn-gold w-100">
+                            <span class="lang-en">Send Message</span>
+                            <span class="lang-zh">提交諮詢</span>
+                        </button></div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-4 bg-dark text-white-50 border-top border-secondary">
-        <div class="container text-center">
-            <p class="small mb-0">© 1991 - 2026 Well Yuen Garments Ltd. | BSCI Certified Manufacturer</p>
-        </div>
+    <footer class="py-4 bg-dark text-white-50 text-center">
+        <p class="mb-0">© 1991 - 2026 Well Yuen Garments Ltd. 華源制衣有限公司</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function setLanguage(lang) {
+            // 改變 body 的 lang 屬性
+            document.body.setAttribute('lang', lang);
+            
+            // 更新按鈕狀態
+            const buttons = document.querySelectorAll('.lang-switch .btn');
+            buttons.forEach(btn => {
+                if (btn.innerText.toLowerCase() === lang || (btn.innerText === '中文' && lang === 'zh')) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // 可選：將偏好儲存到 local storage
+            localStorage.setItem('preferred_lang', lang);
+        }
+
+        // 初始化檢查用戶之前的選擇
+        window.onload = () => {
+            const savedLang = localStorage.getItem('preferred_lang');
+            if (savedLang) setLanguage(savedLang);
+        };
+    </script>
+
 </body>
 </html>

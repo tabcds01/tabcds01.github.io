@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>華源製衣有限公司 - 專業服裝生產廠家</title>
-    <meta name="description" content="華源製衣有限公司，30多年服裝生產經驗，專注梭織、針織、牛仔服裝生產">
+    <title>Well Yuen Garments Ltd. - Professional Garment Manufacturer</title>
+    <meta name="description" content="Well Yuen Garments Ltd., established in 1991, with over 30 years of garment production experience, focusing on woven, knitted and denim garment production">
     <!-- 稳定CDN加载Font Awesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <style>
@@ -462,8 +462,8 @@
 
         <!-- 中英切换按钮（核心DOM） -->
         <div class="lang-switch">
-            <button id="btn-zh" class="active">中</button>
-            <button id="btn-en">EN</button>
+            <button id="btn-zh">中</button>
+            <button id="btn-en" class="active">EN</button>
         </div>
         <div class="menu-toggle">
             <i class="fa fa-bars"></i>
@@ -693,8 +693,8 @@
             btnZh.addEventListener('click', () => switchLang('zh'));
             btnEn.addEventListener('click', () => switchLang('en'));
 
-            // 初始化语言（优先本地存储，默认中文）
-            const preferredLang = localStorage.getItem('preferredLang') || 'zh';
+            // 初始化语言：优先本地存储，默认英文（核心修改点）
+            const preferredLang = localStorage.getItem('preferredLang') || 'en';
             switchLang(preferredLang);
 
             // 移动端菜单切换

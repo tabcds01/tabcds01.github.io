@@ -12,7 +12,7 @@
         :root {
             --primary-dark: #0f1115;
             --accent-gold: #c5a059;
-            --overlay-dark: rgba(0, 0, 0, 0.7); /* 加深遮罩，確保文字可讀 */
+            --overlay-dark: rgba(0, 0, 0, 0.65); 
         }
 
         body { font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; transition: 0.3s; color: #333; overflow-x: hidden; }
@@ -26,13 +26,12 @@
         .lang-switch .btn { color: #fff; border: 1px solid rgba(255,255,255,0.3); font-size: 0.75rem; padding: 4px 10px; margin-left: 5px; border-radius: 0; }
         .lang-switch .btn.active { background: var(--accent-gold); border-color: var(--accent-gold); }
 
-        /* 修復圖片太大遮擋文字的問題 */
         .hero-section { 
             height: 100vh; 
             background: linear-gradient(var(--overlay-dark), var(--overlay-dark)), 
                         url('https://i.postimg.cc/wT6Bwt7T/WY-pic.jpg');
             background-size: cover; 
-            background-position: bottom center; /* 讓辦公室場景靠下，留出上方空間給文字 */
+            background-position: bottom center;
             background-attachment: fixed;
             display: flex; align-items: center; color: white;
             text-align: center;
@@ -45,15 +44,13 @@
             .hero-section p { font-size: 1.1rem !important; }
         }
 
-        .section-padding { padding: 80px 0; }
+        .section-padding { padding: 90px 0; }
         .bg-light-gray { background: #f9f9f9; }
         .text-gold { color: var(--accent-gold); }
 
         .advantage-card { background: #fff; padding: 40px; height: 100%; border-top: 4px solid var(--accent-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         
         .step-num { width: 50px; height: 50px; background: var(--accent-gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: bold; font-size: 1.2rem; }
-        .work-step { transition: 0.3s; }
-        .work-step:hover { transform: translateY(-10px); }
 
         .parallax-banner {
             padding: 100px 0;
@@ -66,6 +63,9 @@
         .btn-gold:hover { background: #b08d4a; color: white; transform: translateY(-3px); }
 
         .footer-logo { height: 35px; width: auto; margin-bottom: 15px; }
+        
+        .contact-box { background: rgba(255,255,255,0.05); padding: 40px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; height: 100%; }
+        .contact-box:hover { border-color: var(--accent-gold); }
     </style>
 </head>
 <body lang="en">
@@ -106,27 +106,27 @@
             <h2 class="fw-bold mb-5 lang-en">How We Work</h2>
             <h2 class="fw-bold mb-5 lang-zh">合作流程</h2>
             <div class="row g-4">
-                <div class="col-md-3 work-step">
+                <div class="col-md-3">
                     <div class="step-num">01</div>
                     <h5 class="lang-en">Inquiry</h5><h5 class="lang-zh">需求洽談</h5>
                     <p class="small text-muted lang-en">Send us your designs and requirements.</p>
-                    <p class="small text-muted lang-zh">提供您的設計稿與生產需求。</p>
+                    <p class="small text-muted lang-zh">提供設計稿與生產需求。</p>
                 </div>
-                <div class="col-md-3 work-step">
+                <div class="col-md-3">
                     <div class="step-num">02</div>
                     <h5 class="lang-en">Sampling</h5><h5 class="lang-zh">樣板開發</h5>
                     <p class="small text-muted lang-en">Prototype development with precision.</p>
                     <p class="small text-muted lang-zh">精準打樣，確保版型與細節。</p>
                 </div>
-                <div class="col-md-3 work-step">
+                <div class="col-md-3">
                     <div class="step-num">03</div>
                     <h5 class="lang-en">Production</h5><h5 class="lang-zh">批量生產</h5>
                     <p class="small text-muted lang-en">Scale production in specialized units.</p>
                     <p class="small text-muted lang-zh">由專業工廠產線進行大規模生產。</p>
                 </div>
-                <div class="col-md-3 work-step">
+                <div class="col-md-3">
                     <div class="step-num">04</div>
-                    <h5 class="lang-en">Delivery</h5><h5 class="lang-zh">品質檢驗與交貨</h5>
+                    <h5 class="lang-en">Delivery</h5><h5 class="lang-zh">品檢與交貨</h5>
                     <p class="small text-muted lang-en">Global shipping with strict QC.</p>
                     <p class="small text-muted lang-zh">嚴格品控後，配送至全球指定地點。</p>
                 </div>
@@ -183,6 +183,36 @@
                     <h4 class="text-gold lang-en">Fujian Factory</h4><h4 class="text-gold lang-zh">福建工廠</h4>
                     <p class="lang-en">Focused on specialized Woven and Knits</p>
                     <p class="lang-zh">分廠專注各類梭織與針織產品</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding bg-dark text-white text-center">
+        <div class="container">
+            <h2 class="fw-bold mb-5 lang-en">Contact Our Team</h2>
+            <h2 class="fw-bold mb-5 lang-zh">聯絡我們</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="contact-box">
+                        <i class="fa fa-map-marker-alt text-gold fa-2x mb-3"></i>
+                        <h5 class="lang-en">Hong Kong Office</h5><h5 class="lang-zh">香港辦事處</h5>
+                        <p class="small text-white-50">1802 Million Fortune Industrial Centre,<br>34-36 Chai Wan Kok Street,<br>Tsuen Wan, New Territories, Hong Kong</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-box">
+                        <i class="fa fa-envelope text-gold fa-2x mb-3"></i>
+                        <h5>Email</h5>
+                        <a href="mailto:wicky@wellyuen.com.hk" class="text-decoration-none text-white-50">wicky@wellyuen.com.hk</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-box">
+                        <i class="fa fa-phone text-gold fa-2x mb-3"></i>
+                        <h5 class="lang-en">Phone</h5><h5 class="lang-zh">電話</h5>
+                        <a href="tel:+85226113201" class="text-decoration-none text-white-50">(+852) 2611 3201</a>
+                    </div>
                 </div>
             </div>
         </div>

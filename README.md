@@ -177,7 +177,7 @@
                     <div class="advantage-card product-card text-center">
                         <i class="fa-solid fa-vest-patches text-gold fa-3x mb-4"></i>
                         <h4 class="fw-bold lang-en">Denim & Woven</h4>
-                        <h4 class="fw-bold lang-zh">丹寧與梭織</h4>
+                        <h4 class="fw-bold lang-zh">牛仔與梭織</h4>
                         <p class="small text-muted lang-en">Specializing in premium jeans, jackets, and workwear with advanced washing & distressing effects.</p>
                         <p class="small text-muted lang-zh">專精於高品質牛仔褲、夾克及梭織工裝，具備先進的水洗、噴砂與特殊染色工藝。</p>
                     </div>

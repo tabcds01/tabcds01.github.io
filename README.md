@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- 适配GitHub Pages的标题和SEO -->
     <title>華源製衣有限公司 - 專業服裝生產廠家</title>
     <meta name="description" content="華源製衣有限公司，30多年服裝生產經驗，專注梭織、針織、牛仔服裝生產">
-    <!-- 改用CDN加速且兼容GitHub Pages的Font Awesome -->
+    <!-- 稳定CDN加载Font Awesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <style>
+        /* 基础样式 */
         :root {
             --primary: #2D3748;
             --accent1: #E53E3E;
@@ -23,15 +23,16 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* 改用系统字体，避免GitHub Pages加载外部字体失败 */
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', '微軟雅黑', 'Microsoft YaHei', sans-serif;
         }
         body {
             background-color: var(--neutral1);
             color: var(--neutral3);
             line-height: 1.8;
+            overflow-x: hidden;
         }
-        /* 导航栏-右上角语言按钮，优先级最高 */
+
+        /* 导航栏（核心：包含语言按钮） */
         nav {
             position: fixed;
             top: 0;
@@ -44,8 +45,6 @@
             justify-content: space-between;
             align-items: center;
             gap: 2rem;
-            /* 适配GitHub Pages的滚动兼容性 */
-            box-sizing: border-box;
         }
         .logo {
             font-size: 1.25rem;
@@ -68,7 +67,8 @@
         .nav-links a:hover {
             color: var(--primary);
         }
-        /* 右上角语言按钮样式-醒目放大 */
+
+        /* 中英切换按钮（核心样式） */
         .lang-switch {
             display: flex;
             gap: 1.2rem;
@@ -94,17 +94,19 @@
         .lang-switch button:hover:not(.active) {
             color: var(--primary);
         }
+
+        /* 移动端菜单按钮 */
         .menu-toggle {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
             margin-left: 1rem;
         }
+
+        /* 通用区块样式 */
         section {
             padding: 5rem 5%;
             scroll-margin-top: 80px;
-            /* 适配GitHub Pages的移动端滚动 */
-            overflow: hidden;
         }
         .section-title {
             text-align: center;
@@ -124,15 +126,12 @@
             height: 2px;
             background-color: var(--accent1);
         }
+
+        /* 首页banner */
         #home {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 0;
-            padding-bottom: 0;
-            /* 解决GitHub Pages下100vh的兼容性问题 */
-            min-height: 100vh;
-            height: auto;
             padding: 80px 5% 2rem;
         }
         .banner {
@@ -144,26 +143,20 @@
         .banner-text {
             flex: 1;
             min-width: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
         .banner-text h1 {
             font-size: 2.25rem;
-            color: var(--neutral3);
             margin-bottom: 1rem;
         }
         .banner-text h2 {
             font-size: 1.5rem;
             color: var(--primary);
-            font-weight: bold;
             margin-bottom: 1.5rem;
         }
         .banner-text p {
             font-size: 1rem;
             color: var(--neutral2);
             margin-bottom: 2rem;
-            max-width: 100%;
         }
         .btn {
             display: inline-block;
@@ -174,8 +167,6 @@
             border-radius: 4px;
             font-size: 0.875rem;
             transition: background-color 0.3s;
-            /* 适配GitHub Pages的点击交互 */
-            cursor: pointer;
         }
         .btn:hover {
             background-color: var(--accent1);
@@ -183,17 +174,15 @@
         .banner-img {
             flex: 1;
             min-width: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         .banner-img img {
             width: 100%;
             height: auto;
             border-radius: 8px;
-            /* 解决GitHub Pages图片加载延迟问题 */
             object-fit: cover;
         }
+
+        /* 关于我们 */
         #about {
             background-color: var(--white);
         }
@@ -201,10 +190,10 @@
             max-width: 100%;
             margin: 0 auto;
             text-align: center;
-            font-size: 1rem;
-            color: var(--neutral3);
             padding: 0 1rem;
         }
+
+        /* 产品中心 */
         #products {
             background-color: var(--neutral1);
         }
@@ -218,13 +207,7 @@
             background-color: var(--white);
             border-radius: 8px;
             overflow: hidden;
-            transition: border 0.3s, transform 0.3s;
-            /* 适配GitHub Pages的卡片渲染 */
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .product-card:hover {
-            border: 2px solid var(--primary);
-            transform: translateY(-5px);
         }
         .product-card img {
             width: 100%;
@@ -235,15 +218,15 @@
             padding: 1rem;
             text-align: center;
             font-size: 0.875rem;
-            color: var(--neutral3);
         }
         .products-note {
             text-align: center;
             margin-top: 2rem;
             font-size: 0.75rem;
             color: var(--neutral2);
-            padding: 0 1rem;
         }
+
+        /* 合作流程 */
         #process {
             background-color: var(--white);
         }
@@ -258,10 +241,6 @@
             margin-bottom: 1.5rem;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--neutral2);
-            flex-wrap: wrap;
-        }
-        .process-item:last-child {
-            border-bottom: none;
         }
         .process-number {
             width: 2rem;
@@ -278,10 +257,9 @@
         }
         .process-text {
             font-size: 0.875rem;
-            color: var(--neutral3);
-            flex: 1;
-            min-width: 250px;
         }
+
+        /* 工厂实力 */
         #factory {
             background-color: var(--neutral1);
         }
@@ -298,7 +276,6 @@
         .factory-text h3 {
             font-size: 1.25rem;
             color: var(--primary);
-            font-weight: bold;
             margin-bottom: 1.5rem;
         }
         .factory-list {
@@ -306,7 +283,6 @@
         }
         .factory-list li {
             font-size: 0.875rem;
-            color: var(--neutral3);
             margin-bottom: 0.75rem;
             display: flex;
             align-items: center;
@@ -329,6 +305,8 @@
             object-fit: cover;
             border-radius: 8px;
         }
+
+        /* 核心优势 */
         #advantage {
             background-color: var(--white);
         }
@@ -344,12 +322,11 @@
             background-color: var(--neutral1);
             border-radius: 8px;
             padding: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
         }
         .advantage-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(45,55,72,0.1);
         }
         .advantage-card i {
             font-size: 1.5rem;
@@ -359,36 +336,26 @@
         .advantage-card h3 {
             font-size: 1rem;
             color: var(--primary);
-            font-weight: bold;
             margin-bottom: 1rem;
         }
         .advantage-card p {
             font-size: 0.875rem;
             color: var(--neutral2);
         }
+
+        /* 联系我们 */
         #contact {
             background-color: var(--white);
         }
         .contact-content {
             max-width: 100%;
             margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 0 1rem;
-        }
-        .contact-info {
-            width: 100%;
-            text-align: left;
         }
         .contact-item {
             display: flex;
             align-items: flex-start;
             margin-bottom: 2rem;
-            max-width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            flex-wrap: wrap;
         }
         .contact-item i {
             color: var(--primary);
@@ -399,24 +366,20 @@
         }
         .contact-item p {
             font-size: 1rem;
-            color: var(--neutral3);
-            flex: 1;
-            min-width: 250px;
         }
         .contact-item a {
             color: #0066cc;
             text-decoration: none;
-            /* 适配GitHub Pages的链接样式 */
             word-break: break-all;
         }
+
+        /* 页脚 */
         footer {
             background-color: var(--primary);
             color: var(--white);
             padding: 3rem 5%;
             text-align: center;
-            /* 适配GitHub Pages的底部固定 */
             width: 100%;
-            box-sizing: border-box;
         }
         .footer-logo {
             font-size: 1.25rem;
@@ -432,12 +395,8 @@
             font-size: 0.75rem;
             opacity: 0.6;
         }
-        /* 响应式适配-移动端语言按钮仍在右上角 */
-        @media (max-width: 1024px) {
-            .nav-links {
-                gap: 1.5rem;
-            }
-        }
+
+        /* 响应式适配 */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -475,18 +434,11 @@
             section {
                 padding: 3rem 5%;
             }
-            .contact-item p {
-                font-size: 0.875rem;
-            }
-        }
-        /* GitHub Pages 加载优化 */
-        img {
-            /* 懒加载适配GitHub Pages */
-            loading: lazy;
         }
     </style>
 </head>
 <body>
+    <!-- 导航栏（包含中英切换按钮） -->
     <nav>
         <div class="logo" data-lang="zh">華源製衣有限公司</div>
         <div class="logo" data-lang="en" style="display: none;">Well Yuen Garments Ltd.</div>
@@ -508,7 +460,7 @@
             <a href="#contact" data-lang="en" style="display: none;">Contact Us</a>
         </div>
 
-        <!-- 顶部右上角中英双语按钮-固定位置，醒目展示 -->
+        <!-- 中英切换按钮（核心DOM） -->
         <div class="lang-switch">
             <button id="btn-zh" class="active">中</button>
             <button id="btn-en">EN</button>
@@ -518,6 +470,7 @@
         </div>
     </nav>
 
+    <!-- 首页 -->
     <section id="home">
         <div class="banner">
             <div class="banner-text">
@@ -536,6 +489,7 @@
         </div>
     </section>
 
+    <!-- 关于我们 -->
     <section id="about">
         <h2 class="section-title" data-lang="zh">關於我們</h2>
         <h2 class="section-title" data-lang="en" style="display: none;">About Us</h2>
@@ -545,6 +499,7 @@
         </div>
     </section>
 
+    <!-- 产品中心 -->
     <section id="products">
         <h2 class="section-title" data-lang="zh">產品中心</h2>
         <h2 class="section-title" data-lang="en" style="display: none;">Products</h2>
@@ -584,6 +539,7 @@
         <p class="products-note" data-lang="en" style="display: none;">and all kinds of knitted & woven garments.</p>
     </section>
 
+    <!-- 合作流程 -->
     <section id="process">
         <h2 class="section-title" data-lang="zh">合作流程</h2>
         <h2 class="section-title" data-lang="en" style="display: none;">How We Work</h2>
@@ -621,6 +577,7 @@
         </div>
     </section>
 
+    <!-- 工厂实力 -->
     <section id="factory">
         <h2 class="section-title" data-lang="zh">工廠實力</h2>
         <h2 class="section-title" data-lang="en" style="display: none;">Factories</h2>
@@ -651,6 +608,7 @@
         </div>
     </section>
 
+    <!-- 核心优势 -->
     <section id="advantage">
         <h2 class="section-title" data-lang="zh">核心優勢</h2>
         <h2 class="section-title" data-lang="en" style="display: none;">Advantage</h2>
@@ -672,6 +630,7 @@
         </div>
     </section>
 
+    <!-- 联系我们 -->
     <section id="contact">
         <h2 class="section-title" data-lang="zh">聯繫我們</h2>
         <h2 class="section-title" data-lang="en" style="display: none;">Contact Us</h2>
@@ -696,6 +655,7 @@
         </div>
     </section>
 
+    <!-- 页脚 -->
     <footer>
         <div class="footer-logo" data-lang="zh">華源製衣有限公司</div>
         <div class="footer-logo" data-lang="en" style="display: none;">Well Yuen Garments Ltd.</div>
@@ -704,55 +664,53 @@
         <div class="copyright">© 2025 Well Yuen Garments Ltd. All Rights Reserved.</div>
     </footer>
 
+    <!-- 核心交互脚本（包含中英切换） -->
     <script>
-        // 适配GitHub Pages的DOM加载
         document.addEventListener('DOMContentLoaded', function() {
+            // 核心元素获取
             const btnZh = document.getElementById('btn-zh');
             const btnEn = document.getElementById('btn-en');
             const langElements = document.querySelectorAll('[data-lang]');
             const menuToggle = document.querySelector('.menu-toggle');
             const navLinks = document.querySelector('.nav-links');
 
-            // 中英双语切换功能
-            btnZh.addEventListener('click', () => {
-                btnZh.classList.add('active');
-                btnEn.classList.remove('active');
+            // 中英切换核心逻辑
+            const switchLang = (targetLang) => {
+                if (targetLang === 'zh') {
+                    btnZh.classList.add('active');
+                    btnEn.classList.remove('active');
+                } else {
+                    btnEn.classList.add('active');
+                    btnZh.classList.remove('active');
+                }
                 langElements.forEach(el => {
-                    el.style.display = el.getAttribute('data-lang') === 'zh' ? 'block' : 'none';
+                    el.style.display = el.getAttribute('data-lang') === targetLang ? 'block' : 'none';
                 });
-                // 保存语言偏好到localStorage，适配GitHub Pages刷新后记忆
-                localStorage.setItem('preferredLang', 'zh');
+                localStorage.setItem('preferredLang', targetLang);
+            };
+
+            // 按钮点击事件
+            btnZh.addEventListener('click', () => switchLang('zh'));
+            btnEn.addEventListener('click', () => switchLang('en'));
+
+            // 初始化语言（优先本地存储，默认中文）
+            const preferredLang = localStorage.getItem('preferredLang') || 'zh';
+            switchLang(preferredLang);
+
+            // 移动端菜单切换
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
             });
 
-            btnEn.addEventListener('click', () => {
-                btnEn.classList.add('active');
-                btnZh.classList.remove('active');
-                langElements.forEach(el => {
-                    el.style.display = el.getAttribute('data-lang') === 'en' ? 'block' : 'none';
-                });
-                localStorage.setItem('preferredLang', 'en');
-            });
-
-            // 读取localStorage的语言偏好，适配GitHub Pages首次加载
-            const preferredLang = localStorage.getItem('preferredLang');
-            if (preferredLang === 'en') {
-                btnEn.click();
-            } else {
-                btnZh.click(); // 默认中文
-            }
-
-            // 平滑滚动（适配GitHub Pages的锚点跳转）
+            // 平滑滚动
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                        // 移动端点击导航后关闭菜单
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                        // 移动端点击后关闭菜单
                         if (window.innerWidth <= 768) {
                             navLinks.classList.remove('show');
                         }
@@ -760,21 +718,11 @@
                 });
             });
 
-            // 移动端汉堡菜单
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('show');
-            });
-
-            // 窗口缩放时重置菜单（适配GitHub Pages的响应式）
+            // 窗口缩放重置菜单
             window.addEventListener('resize', () => {
                 if (window.innerWidth > 768) {
                     navLinks.classList.remove('show');
                 }
-            });
-
-            // 解决GitHub Pages下的滚动溢出问题
-            window.addEventListener('scroll', function() {
-                document.body.style.overflow = 'auto';
             });
         });
     </script>

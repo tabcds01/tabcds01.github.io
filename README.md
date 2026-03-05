@@ -12,7 +12,7 @@
         :root {
             --primary-dark: #0f1115;
             --accent-gold: #c5a059;
-            --overlay-dark: rgba(15, 17, 21, 0.75);
+            --overlay-dark: rgba(15, 17, 21, 0.7);
         }
 
         body { font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; transition: 0.3s; color: #333; overflow-x: hidden; }
@@ -28,12 +28,11 @@
         .lang-switch .btn { color: #fff; border: 1px solid rgba(255,255,255,0.3); font-size: 0.75rem; padding: 4px 10px; margin-left: 5px; border-radius: 0; }
         .lang-switch .btn.active { background: var(--accent-gold); border-color: var(--accent-gold); }
 
-        /* 第一頁：首屏背景改為公司上傳圖片 */
+        /* 首屏背景：使用您上傳的連結 */
         .hero-section { 
             height: 100vh; 
             background: linear-gradient(var(--overlay-dark), var(--overlay-dark)), 
-                        url('https://i.ibb.co/3W6qWbH/wy-logo-fixed.png'); /* 這裡會由瀏覽器加載您的圖片 */
-            background-image: linear-gradient(var(--overlay-dark), var(--overlay-dark)), url('https://raw.githubusercontent.com/yuen-garment/site/main/office.jpg'); /* 範例路徑 */
+                        url('https://i.postimg.cc/wT6Bwt7T/WY-pic.jpg');
             background-size: cover; background-position: center; background-attachment: fixed;
             display: flex; align-items: center; color: white;
         }
@@ -45,7 +44,7 @@
         /* 核心優勢卡片 */
         .advantage-card { background: #fff; padding: 40px; height: 100%; border-top: 4px solid var(--accent-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         
-        /* 服務流程 */
+        /* 服務流程數字 */
         .step-num { width: 40px; height: 40px; background: var(--accent-gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; }
 
         /* 視差橫幅 */
@@ -80,7 +79,7 @@
         </div>
     </nav>
 
-    <header class="hero-section" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://raw.githubusercontent.com/yuen-garment/site/main/office.jpg');">
+    <header class="hero-section">
         <div class="container">
             <div class="lang-en">
                 <h1 class="display-1 fw-bold mb-4">Looking for the right factory?</h1>
@@ -101,7 +100,7 @@
                 <div class="col-lg-6">
                     <div class="lang-en">
                         <h2 class="display-5 fw-bold mb-4">Our Advantage</h2>
-                        <p class="text-muted">We specialize in providing high quality garments to various sectors at highly competitive prices. Our factory facilities cover most types of woven and knit items.</p>
+                        <p class="text-muted">We specialize in providing high quality garments at highly competitive prices. Our factory facilities cover most types of woven and knit items.</p>
                     </div>
                     <div class="lang-zh">
                         <h2 class="display-4 fw-bold mb-4">我們的優勢</h2>
@@ -185,7 +184,7 @@
                 <div class="col-md-6 text-md-start px-4">
                     <h4 class="text-gold lang-en">Fujian Factory</h4>
                     <h4 class="text-gold lang-zh">福建工廠</h4>
-                    <p class="lang-en">Focused on Woven and Knits across specialized units</p>
+                    <p class="lang-en">Focused on Woven and Knits</p>
                     <p class="lang-zh">分廠專注梭織與針織生產</p>
                 </div>
             </div>

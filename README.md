@@ -229,7 +229,7 @@
         </div>
     </section>
 
-    <section id="contact" class="section-padding bg-dark text-white">
+<section id="contact" class="section-padding bg-dark text-white">
         <div class="container text-center">
             <h2 class="fw-bold mb-4 lang-en">Contact Our Team</h2>
             <h2 class="fw-bold mb-4 lang-zh">聯繫華源</h2>
@@ -247,7 +247,8 @@
                 <div class="col-md-4">
                     <div class="p-4 border border-secondary">
                         <i class="fa fa-phone text-gold fa-2x mb-3"></i>
-                        <h5>Phone</h5>
+                        <h5 class="lang-en">Phone</h5>
+                        <h5 class="lang-zh">電話</h5>
                         <a href="tel:+85226113201" class="text-decoration-none text-white-50">(+852) 2611 3201</a>
                     </div>
                 </div>
@@ -258,8 +259,14 @@
     <footer class="py-5 bg-black text-white-50 text-center">
         <div class="container">
             <img src="https://i.ibb.co/3W6qWbH/wy-logo-fixed.png" alt="Well Yuen Logo" class="footer-logo">
-            <p class="small mb-0 lang-en">© 1991 - 2026 Well Yuen Garments Ltd. | BSCI & SA8000 Certified Manufacturer</p>
-            <p class="small mb-0 lang-zh">© 1991 - 2026 華源制衣有限公司 | BSCI 及 SA8000 認證製造商</p>
+            <div class="lang-en">
+                <p class="small mb-1">Well Yuen Garments Ltd.</p>
+                <p class="small mb-0">© 1991 - 2026 | BSCI & SA8000 Certified Manufacturer</p>
+            </div>
+            <div class="lang-zh">
+                <p class="small mb-1">華源制衣有限公司</p>
+                <p class="small mb-0">© 1991 - 2026 | BSCI 及 SA8000 認證製造商</p>
+            </div>
         </div>
     </footer>
 

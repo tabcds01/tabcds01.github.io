@@ -12,13 +12,12 @@
         :root {
             --primary-dark: #0f1115;
             --accent-gold: #c5a059;
-            --overlay-dark: rgba(15, 17, 21, 0.7);
+            --overlay-dark: rgba(0, 0, 0, 0.7); /* 加深遮罩，確保文字可讀 */
         }
 
         body { font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; transition: 0.3s; color: #333; overflow-x: hidden; }
         html { scroll-behavior: smooth; }
         
-        /* 語言切換 */
         [lang="en"] .lang-zh { display: none !important; }
         [lang="zh"] .lang-en { display: none !important; }
 
@@ -27,27 +26,37 @@
         .lang-switch .btn { color: #fff; border: 1px solid rgba(255,255,255,0.3); font-size: 0.75rem; padding: 4px 10px; margin-left: 5px; border-radius: 0; }
         .lang-switch .btn.active { background: var(--accent-gold); border-color: var(--accent-gold); }
 
+        /* 修復圖片太大遮擋文字的問題 */
         .hero-section { 
             height: 100vh; 
             background: linear-gradient(var(--overlay-dark), var(--overlay-dark)), 
                         url('https://i.postimg.cc/wT6Bwt7T/WY-pic.jpg');
-            background-size: cover; background-position: center; background-attachment: fixed;
+            background-size: cover; 
+            background-position: bottom center; /* 讓辦公室場景靠下，留出上方空間給文字 */
+            background-attachment: fixed;
             display: flex; align-items: center; color: white;
+            text-align: center;
         }
 
-        .section-padding { padding: 100px 0; }
+        .hero-content { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2.5rem !important; }
+            .hero-section p { font-size: 1.1rem !important; }
+        }
+
+        .section-padding { padding: 80px 0; }
         .bg-light-gray { background: #f9f9f9; }
         .text-gold { color: var(--accent-gold); }
 
         .advantage-card { background: #fff; padding: 40px; height: 100%; border-top: 4px solid var(--accent-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         
-        /* 合作流程樣式 */
         .step-num { width: 50px; height: 50px; background: var(--accent-gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: bold; font-size: 1.2rem; }
         .work-step { transition: 0.3s; }
         .work-step:hover { transform: translateY(-10px); }
 
         .parallax-banner {
-            padding: 120px 0;
+            padding: 100px 0;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                         url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000');
             background-size: cover; background-attachment: fixed; color: white; text-align: center;
@@ -78,15 +87,15 @@
     </nav>
 
     <header class="hero-section">
-        <div class="container">
+        <div class="hero-content">
             <div class="lang-en">
-                <h1 class="display-1 fw-bold mb-4">Looking for the right factory?</h1>
-                <p class="fs-4 text-white-50 mb-5">Established in 1991. Over 30 years of manufacturing excellence for global brands.</p>
+                <h1 class="display-2 fw-bold mb-4">Looking for the right factory?</h1>
+                <p class="fs-4 text-white-75 mb-5">Established in 1991. Over 30 years of manufacturing excellence for global brands.</p>
                 <a href="#contact" class="btn btn-gold">CONTACT US NOW</a>
             </div>
             <div class="lang-zh">
-                <h1 class="display-2 fw-bold mb-4">正在尋找理想的工廠？</h1>
-                <p class="fs-3 text-white-50 mb-5">華源製衣成立於 1991 年。三十載深耕，為全球品牌提供卓越製造服務。</p>
+                <h1 class="display-3 fw-bold mb-4">正在尋找理想的工廠？</h1>
+                <p class="fs-3 text-white-75 mb-5">華源製衣成立於 1991 年。三十載深耕，為全球品牌提供卓越製造服務。</p>
                 <a href="#contact" class="btn btn-gold">立即聯絡我們</a>
             </div>
         </div>
@@ -99,29 +108,25 @@
             <div class="row g-4">
                 <div class="col-md-3 work-step">
                     <div class="step-num">01</div>
-                    <h5 class="lang-en">Inquiry</h5>
-                    <h5 class="lang-zh">需求洽談</h5>
+                    <h5 class="lang-en">Inquiry</h5><h5 class="lang-zh">需求洽談</h5>
                     <p class="small text-muted lang-en">Send us your designs and requirements.</p>
                     <p class="small text-muted lang-zh">提供您的設計稿與生產需求。</p>
                 </div>
                 <div class="col-md-3 work-step">
                     <div class="step-num">02</div>
-                    <h5 class="lang-en">Sampling</h5>
-                    <h5 class="lang-zh">樣板開發</h5>
+                    <h5 class="lang-en">Sampling</h5><h5 class="lang-zh">樣板開發</h5>
                     <p class="small text-muted lang-en">Prototype development with precision.</p>
                     <p class="small text-muted lang-zh">精準打樣，確保版型與細節。</p>
                 </div>
                 <div class="col-md-3 work-step">
                     <div class="step-num">03</div>
-                    <h5 class="lang-en">Production</h5>
-                    <h5 class="lang-zh">批量生產</h5>
+                    <h5 class="lang-en">Production</h5><h5 class="lang-zh">批量生產</h5>
                     <p class="small text-muted lang-en">Scale production in specialized units.</p>
                     <p class="small text-muted lang-zh">由專業工廠產線進行大規模生產。</p>
                 </div>
                 <div class="col-md-3 work-step">
                     <div class="step-num">04</div>
-                    <h5 class="lang-en">Delivery</h5>
-                    <h5 class="lang-zh">品質檢驗與交貨</h5>
+                    <h5 class="lang-en">Delivery</h5><h5 class="lang-zh">品質檢驗與交貨</h5>
                     <p class="small text-muted lang-en">Global shipping with strict QC.</p>
                     <p class="small text-muted lang-zh">嚴格品控後，配送至全球指定地點。</p>
                 </div>
@@ -131,7 +136,7 @@
 
     <section class="section-padding bg-light-gray">
         <div class="container">
-            <div class="row g-5 align-items-center mb-5">
+            <div class="row g-5 align-items-center">
                 <div class="col-lg-6">
                     <div class="lang-en">
                         <h2 class="display-5 fw-bold mb-4">Our Advantage</h2>
@@ -139,23 +144,21 @@
                     </div>
                     <div class="lang-zh">
                         <h2 class="display-4 fw-bold mb-4">我們的優勢</h2>
-                        <p class="text-muted">我們致力於以極具競爭力的價格提供高品質服飾。工廠產線全面，涵蓋大多數梭織與針織品類。</p>
+                        <p class="text-muted">致力於以極具競爭力的價格提供高品質服飾。工廠產線全面，涵蓋大多數梭織與針織品類。</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="advantage-card">
-                                <h5 class="fw-bold lang-en">Comprehensive</h5>
-                                <h5 class="fw-bold lang-zh">品類全面</h5>
+                                <h5 class="fw-bold lang-en">Comprehensive</h5><h5 class="fw-bold lang-zh">品類全面</h5>
                                 <p class="small text-muted lang-en">Jackets, Jeans, Sweaters & more</p>
                                 <p class="small text-muted lang-zh">夾克、牛仔、毛衣等各類服裝</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="advantage-card">
-                                <h5 class="fw-bold lang-en">Experienced</h5>
-                                <h5 class="fw-bold lang-zh">專業團隊</h5>
+                                <h5 class="fw-bold lang-en">Experienced</h5><h5 class="fw-bold lang-zh">專業團隊</h5>
                                 <p class="small text-muted lang-en">Skilled merchandiser team</p>
                                 <p class="small text-muted lang-zh">資深跟單團隊，精通國際市場需求</p>
                             </div>
@@ -172,39 +175,14 @@
             <h2 class="display-4 fw-bold mb-4 lang-zh">4,000 平方米現代化工業園區</h2>
             <div class="row mt-5">
                 <div class="col-md-6 text-md-end border-md-end px-4">
-                    <h4 class="text-gold lang-en">Guangdong Factory</h4>
-                    <h4 class="text-gold lang-zh">廣東工廠</h4>
+                    <h4 class="text-gold lang-en">Guangdong Factory</h4><h4 class="text-gold lang-zh">廣東工廠</h4>
                     <p class="lang-en">Denims and Cardigans specialists</p>
                     <p class="lang-zh">牛仔及針織開衫專業生產基地</p>
                 </div>
                 <div class="col-md-6 text-md-start px-4">
-                    <h4 class="text-gold lang-en">Fujian Factory</h4>
-                    <h4 class="text-gold lang-zh">福建工廠</h4>
+                    <h4 class="text-gold lang-en">Fujian Factory</h4><h4 class="text-gold lang-zh">福建工廠</h4>
                     <p class="lang-en">Focused on specialized Woven and Knits</p>
                     <p class="lang-zh">分廠專注各類梭織與針織產品</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section-padding bg-dark text-white text-center">
-        <div class="container">
-            <h2 class="fw-bold mb-4 lang-en">Contact Us</h2>
-            <h2 class="fw-bold mb-4 lang-zh">聯繫華源</h2>
-            <div class="row g-4 justify-content-center mt-4">
-                <div class="col-md-4">
-                    <div class="p-4 border border-secondary">
-                        <i class="fa fa-envelope text-gold fa-2x mb-3"></i>
-                        <h5>Email</h5>
-                        <a href="mailto:wicky@wellyuen.com.hk" class="text-decoration-none text-white-50">wicky@wellyuen.com.hk</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 border border-secondary">
-                        <i class="fa fa-phone text-gold fa-2x mb-3"></i>
-                        <h5 class="lang-en">Phone</h5><h5 class="lang-zh">電話</h5>
-                        <a href="tel:+85226113201" class="text-decoration-none text-white-50">(+852) 2611 3201</a>
-                    </div>
                 </div>
             </div>
         </div>

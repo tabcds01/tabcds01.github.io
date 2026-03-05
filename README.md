@@ -10,214 +10,184 @@
     
     <style>
         :root {
-            --primary-dark: #121418;
+            --bg-dark: #1e2229;
             --accent-gold: #c5a059;
-            --text-gray: #888;
             --white: #ffffff;
+            --text-gray: #777;
         }
 
         body { 
             font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; 
-            background-color: #fff; 
-            color: #333;
+            background-color: #ffffff;
             margin: 0;
         }
 
-        /* 語系切換顯示邏輯 */
-        [lang="en"] .lang-zh { display: none !important; }
-        [lang="zh"] .lang-en { display: none !important; }
-
-        /* --- 1. 頂部導航欄 (精簡化排版) --- */
-        .navbar { 
-            background: rgba(18, 20, 24, 0.98); 
+        /* --- 頂部導航欄 (NavBar) --- */
+        .navbar {
+            background-color: var(--bg-dark);
             padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .navbar-brand { display: flex; align-items: center; }
-        .brand-logo-icon { color: var(--accent-gold); font-size: 1.8rem; margin-right: 15px; }
-        .brand-divider { height: 30px; width: 1px; background: #444; margin-right: 15px; }
-        .brand-name-text { color: var(--white); line-height: 1.1; }
-        .brand-name-text .main { font-weight: 700; font-size: 1.1rem; letter-spacing: 1px; }
-        .brand-name-text .sub { font-size: 0.75rem; color: var(--text-gray); font-weight: 300; }
+        .navbar-brand img { height: 45px; margin-right: 15px; }
+        .brand-text { color: white; line-height: 1.2; border-left: 1px solid #555; padding-left: 15px; }
+        .brand-text .en { font-weight: 700; font-size: 1.1rem; }
+        .brand-text .zh { font-size: 0.9rem; font-weight: 400; }
+        
+        .lang-switch { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
+        .lang-switch span { margin: 0 10px; cursor: pointer; transition: 0.3s; }
+        .lang-switch span:hover { color: var(--accent-gold); }
 
-        .lang-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.8rem; transition: 0.3s; padding: 0 10px; }
-        .lang-link:hover, .lang-link.active { color: var(--accent-gold); }
-
-        /* --- 2. Hero Section (高度縮小 + 置中 Logo + 右下浮動圖) --- */
-        .hero-section { 
-            height: 75vh; /* 縮小高度，確保一打開網址即見全貌 */
+        /* --- Hero Section (大圖背景 + 置中內容) --- */
+        .hero-section {
+            height: 70vh; /* 縮小高度，確保一開網頁即見全貌 */
             min-height: 550px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=2000&auto=format&fit=crop') center/cover;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            overflow: hidden;
+            text-align: center;
+            color: white;
         }
 
-        .hero-center-content { text-align: center; z-index: 10; max-width: 800px; }
-        .hero-main-logo { font-size: 4.5rem; color: var(--accent-gold); margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(0,0,0,0.5)); }
-        .hero-title { font-size: 3.5rem; font-weight: 700; margin-bottom: 0px; letter-spacing: 2px; }
-        .hero-subtitle { font-size: 1.5rem; color: var(--accent-gold); font-weight: 300; margin-bottom: 40px; }
-        .btn-cta { 
-            background: transparent; border: 1px solid var(--accent-gold); color: var(--accent-gold);
-            padding: 12px 40px; border-radius: 0; font-weight: 600; transition: 0.4s; text-decoration: none;
+        .hero-content { z-index: 5; }
+        .hero-logo-large { width: 100px; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); }
+        .hero-title-en { font-size: 3.2rem; font-weight: 700; margin-bottom: 5px; letter-spacing: 1px; }
+        .hero-title-zh { font-size: 2.8rem; font-weight: 700; margin-bottom: 25px; }
+        .hero-description { font-size: 1rem; opacity: 0.9; line-height: 1.6; max-width: 800px; margin: 0 auto 30px; }
+        
+        .btn-contact {
+            background-color: var(--accent-gold);
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.3s;
         }
-        .btn-cta:hover { background: var(--accent-gold); color: var(--white); }
+        .btn-contact:hover { background-color: #a8884a; color: white; transform: translateY(-3px); }
 
-        /* 右下角浮動圖片窗格 (還原您滿意的排版) */
+        /* --- 右下角浮動圖片 --- */
         .floating-window {
             position: absolute;
-            bottom: 40px;
+            bottom: -50px;
             right: 5%;
             width: 380px;
-            background: var(--white);
-            padding: 10px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            z-index: 20;
-            display: none; /* 平板以下隱藏以維持純淨 */
+            background: white;
+            padding: 8px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            z-index: 10;
         }
-        @media (min-width: 1200px) { .floating-window { display: block; } }
-        .floating-window img { width: 100%; height: auto; display: block; }
+        .floating-window img { width: 100%; display: block; }
 
-        /* --- 3. 內容與地址區塊 --- */
-        .section-padding { padding: 90px 0; }
-        .address-box { 
-            background: #fcfcfc; border: 1px solid #eee; padding: 50px; 
-            border-left: 5px solid var(--accent-gold);
-        }
-        .address-box h3 { font-weight: 700; margin-bottom: 30px; color: var(--primary-dark); }
-        .address-box p { font-size: 1.05rem; line-height: 2; color: #555; }
-        .icon-circle { 
-            width: 40px; height: 40px; background: rgba(197, 160, 89, 0.1); 
-            display: inline-flex; align-items: center; justify-content: center; 
-            border-radius: 50%; color: var(--accent-gold); margin-right: 15px;
-        }
+        /* --- 下方詳情區塊 (About & Product) --- */
+        .info-section { padding: 100px 0 60px; }
+        .section-title { font-size: 1.8rem; font-weight: 700; color: #111; margin-bottom: 10px; }
+        .section-subtitle { font-size: 1.2rem; color: #444; margin-bottom: 25px; }
+        .gold-line { width: 40px; height: 2px; background: var(--accent-gold); margin-bottom: 25px; }
+        .info-text { color: var(--text-gray); font-size: 0.95rem; line-height: 1.8; }
+        
+        .expertise-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .expertise-list li { color: #333; font-size: 0.95rem; display: flex; align-items: center; }
+        .expertise-list li::before { content: "•"; color: var(--accent-gold); font-weight: bold; margin-right: 10px; }
 
-        footer { background: #000; color: #555; padding: 30px 0; text-align: center; font-size: 0.85rem; }
+        /* --- 聯絡資訊區塊 (包含完整地址) --- */
+        .footer-info { background: #f9f9f9; padding: 60px 0; border-top: 1px solid #eee; }
+        .address-text { font-size: 0.95rem; color: #555; line-height: 1.8; }
+        .icon-gold { color: var(--accent-gold); margin-right: 10px; width: 20px; text-align: center; }
+
+        footer { background: #000; color: #444; padding: 25px 0; text-align: center; font-size: 0.8rem; }
+
+        @media (max-width: 991px) {
+            .floating-window { display: none; }
+            .hero-title-en { font-size: 2.2rem; }
+            .hero-title-zh { font-size: 1.8rem; }
+            .expertise-list { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
-<body lang="zh">
+<body>
 
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <i class="fa-solid fa-needle brand-logo-icon"></i>
-                <div class="brand-divider"></div>
-                <div class="brand-name-text">
-                    <div class="main">WELL YUEN</div>
-                    <div class="sub">Garments Ltd. | 華源製衣</div>
+                <img src="https://i.ibb.co/3W6qWbH/wy-logo-fixed.png" alt="Well Yuen Logo">
+                <div class="brand-text">
+                    <div class="en">WELL YUEN Garments</div>
+                    <div class="zh">華源製衣有限公司</div>
                 </div>
             </a>
-            <div class="ms-auto">
-                <a href="javascript:void(0)" class="lang-link active" onclick="setLanguage('zh')">中文</a>
-                <span style="color:#444">/</span>
-                <a href="javascript:void(0)" class="lang-link" onclick="setLanguage('en')">EN</a>
+            <div class="ms-auto lang-switch">
+                <span>EN</span> | <span>中文</span>
             </div>
         </div>
     </nav>
 
     <header class="hero-section">
-        <div class="hero-center-content">
-            <i class="fa-solid fa-vest-patches hero-main-logo"></i>
+        <div class="hero-content container">
+            <img src="https://i.ibb.co/3W6qWbH/wy-logo-fixed.png" alt="Well Yuen Logo" class="hero-logo-large">
+            <h1 class="hero-title-en">WELL YUEN Garments</h1>
+            <h2 class="hero-title-zh">華源製衣有限公司</h2>
             
-            <div class="lang-zh">
-                <h1 class="hero-title">華源製衣有限公司</h1>
-                <p class="hero-subtitle">WELL YUEN GARMENTS LTD.</p>
-                <a href="#contact" class="btn-cta">立即洽詢</a>
+            <div class="hero-description">
+                Looking for the right factory? Established in 1991. <br>
+                Over 30 years of manufacturing excellence for global brands. <br>
+                華源製衣有限公司成立於 1991 年。 <br>
+                嚴至30年度大年的成衣庫經驗性實為有的品牌。
             </div>
-
-            <div class="lang-en">
-                <h1 class="hero-title">WELL YUEN Garments</h1>
-                <p class="hero-subtitle">Excellence Since 1991</p>
-                <a href="#contact" class="btn-cta">CONTACT US</a>
-            </div>
+            
+            <a href="#contact" class="btn-contact">CONTACT US NOW</a>
         </div>
 
         <div class="floating-window">
-            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=800&auto=format&fit=crop" alt="Factory Overview">
-            <div class="p-2 text-center">
-                <small class="text-muted fw-bold">OUR PRODUCTION LINE</small>
-            </div>
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=800&auto=format&fit=crop" alt="Production Line">
         </div>
     </header>
 
-    <section id="contact" class="section-padding">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6">
-                    <div class="address-box">
-                        <h3 class="lang-zh">聯繫我們</h3>
-                        <h3 class="lang-en">Office Location</h3>
-                        
-                        <p>
-                            <span class="icon-circle"><i class="fa-solid fa-location-dot"></i></span>
-                            <strong>Address:</strong><br>
-                            <span class="ps-5 d-block">
-                                1802 Million Fortune Industrial Centre,<br>
-                                34-36 Chai Wan Kok Street,<br>
-                                Tsuen Wan, New Territories, Hong Kong
-                            </span>
-                        </p>
-                        
-                        <p class="mt-4">
-                            <span class="icon-circle"><i class="fa-solid fa-envelope"></i></span>
-                            <strong>Email:</strong> wicky@wellyuen.com.hk
-                        </p>
-                        
-                        <p>
-                            <span class="icon-circle"><i class="fa-solid fa-phone"></i></span>
-                            <strong>Phone:</strong> (+852) 2611 3201
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6 ps-lg-5">
-                    <div class="lang-zh">
-                        <h2 class="fw-bold mb-4">追求卓越的製造品質</h2>
-                        <p class="text-muted mb-4">我們擁有超過三十年的服裝製造經驗，透過嚴謹的 BSCI 與 SA8000 認證管理，確保您的每一張訂單都能在最合規且高效的環境下完成。</p>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fa-solid fa-check text-gold me-2"></i> 靈活的起訂量 (MOQ)</li>
-                            <li class="mb-2"><i class="fa-solid fa-check text-gold me-2"></i> 全自動化針織技術</li>
-                            <li class="mb-2"><i class="fa-solid fa-check text-gold me-2"></i> 國際出口合規標準</li>
-                        </ul>
-                    </div>
-                    <div class="lang-en">
-                        <h2 class="fw-bold mb-4">Superior Manufacturing Quality</h2>
-                        <p class="text-muted mb-4">With over 30 years of experience, our facilities are BSCI & SA8000 certified, ensuring every order is produced ethically and efficiently.</p>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fa-solid fa-check text-gold me-2"></i> Flexible MOQ</li>
-                            <li class="mb-2"><i class="fa-solid fa-check text-gold me-2"></i> Automated Knitting Technology</li>
-                            <li class="mb-2"><i class="fa-solid fa-check text-gold me-2"></i> Global Compliance Standards</li>
-                        </ul>
-                    </div>
-                </div>
+    <section class="info-section container">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <h3 class="section-title">Heritage in Craftsmanship</h3>
+                <h4 class="section-subtitle">About Us</h4>
+                <div class="gold-line"></div>
+                <p class="info-text">
+                    WELL YUEN Garments Established in 1991. Over 30 years of manufacturing excellence for global brands. 
+                    Inowing for the quality of our craftsmanship and dedication to social compliance. 
+                    We serve as a reliable partner in the global supply chain.
+                </p>
+            </div>
+
+            <div class="col-lg-6">
+                <h3 class="section-title">Product Expertise</h3>
+                <div class="gold-line"></div>
+                <ul class="expertise-list">
+                    <li>Belliffing Brand</li>
+                    <li>Farane Expertise</li>
+                    <li>High Quality Sarnes</li>
+                    <li>Product Expertise</li>
+                    <li>Knitting Mastery</li>
+                    <li>Global Compliance</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <footer>
+    <section id="contact" class="footer-info">
         <div class="container">
-            <p>© 1991-2026 Well Yuen Garments Ltd. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        function setLanguage(lang) {
-            document.documentElement.setAttribute('lang', lang);
-            document.body.setAttribute('lang', lang);
-            
-            // 切換連結樣式
-            const links = document.querySelectorAll('.lang-link');
-            links.forEach(link => {
-                link.classList.remove('active');
-                if(link.textContent.trim().toLowerCase().includes(lang === 'en' ? 'en' : '中')) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    </script>
-</body>
-</html>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="fw-bold mb-4">Contact Information</h5>
+                    <div class="address-text">
+                        <p><i class="fa-solid fa-location-dot icon-gold"></i> 
+                            1802 Million Fortune Industrial Centre, <br>
+                            34-36 Chai Wan Kok Street, Tsuen Wan, <br>
+                            New Territories, Hong Kong
+                        </p>
+                        <p><i class="fa-solid fa-phone icon-gold"></i> (+852) 2611 3201</p>
+                        <p><i class="fa-solid fa-envelope icon-gold"></i> wicky@wellyuen.com.hk</p>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md

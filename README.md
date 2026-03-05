@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +18,7 @@
         body { font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; transition: 0.3s; color: #333; overflow-x: hidden; }
         html { scroll-behavior: smooth; }
         
-        /* 語言切換邏輯 */
+        /* 嚴格語言顯示邏輯 */
         [lang="en"] .lang-zh { display: none !important; }
         [lang="zh"] .lang-en { display: none !important; }
 
@@ -27,7 +28,7 @@
         .lang-switch .btn { color: #fff; border: 1px solid rgba(255,255,255,0.3); font-size: 0.75rem; padding: 4px 10px; margin-left: 5px; border-radius: 0; }
         .lang-switch .btn.active { background: var(--accent-gold); border-color: var(--accent-gold); }
 
-        /* 首屏：專業質感 */
+        /* 首屏 */
         .hero-section { 
             height: 100vh; 
             background: linear-gradient(var(--overlay-dark), var(--overlay-dark)), 
@@ -38,11 +39,12 @@
 
         .section-padding { padding: 100px 0; }
         .bg-light-gray { background: #f9f9f9; }
+        .text-gold { color: var(--accent-gold); }
 
         /* 核心優勢卡片 */
         .advantage-card { background: #fff; padding: 40px; height: 100%; border-top: 4px solid var(--accent-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         
-        /* 服務流程步驟 */
+        /* 服務流程 */
         .process-step { position: relative; padding: 20px; text-align: center; }
         .step-num { width: 40px; height: 40px; background: var(--accent-gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; }
 
@@ -54,37 +56,25 @@
             background-size: cover; background-attachment: fixed; color: white; text-align: center;
         }
 
-        /* 聯繫區域與表格樣式修復 */
-        .text-gold { color: var(--accent-gold); }
-        .btn-gold { background: var(--accent-gold); color: white; border-radius: 0; padding: 15px 40px; font-weight: 600; border: none; transition: 0.3s; }
+        .btn-gold { background: var(--accent-gold); color: white; border-radius: 0; padding: 15px 40px; font-weight: 600; border: none; transition: 0.3s; text-decoration: none; }
         .btn-gold:hover { background: #b08d4a; color: white; transform: translateY(-3px); }
-        .form-control::placeholder { color: rgba(255,255,255,0.5); }
-        .form-control:focus { 
-            background-color: #444 !important; 
-            border-color: var(--accent-gold) !important; 
-            box-shadow: none; 
-            color: white; 
-        }
 
-        /* 頁尾 */
-        .footer-logo { height: 30px; width: auto; margin-bottom: 10px; }
+        .footer-logo { height: 35px; width: auto; margin-bottom: 15px; }
     </style>
 </head>
 <body lang="en">
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#" onclick="scrollToTop()">
-                <img src="https://i.ibb.co/3W6qWbH/wy-logo-fixed.png" alt="Well Yuen Garments Ltd. Logo" class="footer-logo">
-                <div>
-                    <span class="lang-en">WELL YUEN <small style="font-weight:300;">Garments</small></span>
-                    <span class="lang-zh">華源制衣 <small style="font-weight:300;">有限公司</small></span>
-                </div>
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="https://i.ibb.co/3W6qWbH/wy-logo-fixed.png" alt="Well Yuen Logo">
+                <span class="lang-en fw-bold">WELL YUEN <small style="font-weight:300;">Garments</small></span>
+                <span class="lang-zh fw-bold">華源制衣 <small style="font-weight:300;">有限公司</small></span>
             </a>
             <div class="ms-auto d-flex align-items-center">
                 <div class="lang-switch">
-                    <button class="btn active" onclick="setLanguage('en')">EN</button>
-                    <button class="btn" onclick="setLanguage('zh')">中文</button>
+                    <button id="btn-en" class="btn" onclick="setLanguage('en')">EN</button>
+                    <button id="btn-zh" class="btn" onclick="setLanguage('zh')">中文</button>
                 </div>
             </div>
         </div>
@@ -95,15 +85,13 @@
             <div class="lang-en">
                 <h1 class="display-1 fw-bold mb-4">Looking for the right factory?</h1>
                 <p class="fs-4 text-white-50 mb-5">Established in 1991. Over 30 years of manufacturing excellence for global brands.</p>
+                <a href="#contact" class="btn btn-gold">CONTACT US NOW</a>
             </div>
             <div class="lang-zh">
                 <h1 class="display-2 fw-bold mb-4">正在尋找理想的工廠？</h1>
                 <p class="fs-3 text-white-50 mb-5">華源制衣成立於 1991 年。三十載深耕，為全球品牌提供卓越製造服務。</p>
+                <a href="#contact" class="btn btn-gold">立即聯絡我們</a>
             </div>
-            <a href="#contact" class="btn btn-gold">
-                <span class="lang-en">CONTACT US NOW</span>
-                <span class="lang-zh">立即聯絡我們</span>
-            </a>
         </div>
     </header>
 
@@ -124,14 +112,18 @@
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="advantage-card">
-                                <h5 class="fw-bold"><span class="lang-en">Comprehensive</span><span class="lang-zh">品類全面</span></h5>
-                                <p class="small text-muted">Most woven and knit items / 覆蓋各類梭織及針織品項</p>
+                                <h5 class="fw-bold lang-en">Comprehensive</h5>
+                                <h5 class="fw-bold lang-zh">品類全面</h5>
+                                <p class="small text-muted lang-en">Most woven and knit items</p>
+                                <p class="small text-muted lang-zh">覆蓋各類梭織及針織品項</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="advantage-card">
-                                <h5 class="fw-bold"><span class="lang-en">Experienced</span><span class="lang-zh">專業團隊</span></h5>
-                                <p class="small text-muted">Skilled merchandiser team / 資深跟單團隊精通市場需求</p>
+                                <h5 class="fw-bold lang-en">Experienced</h5>
+                                <h5 class="fw-bold lang-zh">專業團隊</h5>
+                                <p class="small text-muted lang-en">Skilled merchandiser team</p>
+                                <p class="small text-muted lang-zh">資深跟單團隊精通市場需求</p>
                             </div>
                         </div>
                     </div>
@@ -142,30 +134,35 @@
 
     <section class="section-padding bg-light-gray">
         <div class="container text-center">
-            <h2 class="fw-bold mb-5"><span class="lang-en">Main Products</span><span class="lang-zh">核心產品</span></h2>
+            <h2 class="fw-bold mb-5 lang-en">Main Products</h2>
+            <h2 class="fw-bold mb-5 lang-zh">核心產品</h2>
             <div class="row g-4">
                 <div class="col-md-3">
                     <div class="p-4 bg-white shadow-sm">
                         <i class="fa fa-user-ninja fa-2x mb-3 text-gold"></i>
-                        <h6><span class="lang-en">Jackets & Coats</span><span class="lang-zh">夾克與大衣</span></h6>
+                        <h6 class="lang-en">Jackets & Coats</h6>
+                        <h6 class="lang-zh">夾克與大衣</h6>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="p-4 bg-white shadow-sm">
                         <i class="fa fa-vest fa-2x mb-3 text-gold"></i>
-                        <h6><span class="lang-en">Jeans / Denims</span><span class="lang-zh">牛仔系列</span></h6>
+                        <h6 class="lang-en">Jeans / Denims</h6>
+                        <h6 class="lang-zh">牛仔系列</h6>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="p-4 bg-white shadow-sm">
                         <i class="fa fa-mitten fa-2x mb-3 text-gold"></i>
-                        <h6><span class="lang-en">Sweaters</span><span class="lang-zh">針織毛衣</span></h6>
+                        <h6 class="lang-en">Sweaters</h6>
+                        <h6 class="lang-zh">針織毛衣</h6>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="p-4 bg-white shadow-sm">
                         <i class="fa fa-tshirt fa-2x mb-3 text-gold"></i>
-                        <h6><span class="lang-en">Knitted & Woven</span><span class="lang-zh">各類針梭織服裝</span></h6>
+                        <h6 class="lang-en">Knitted & Woven</h6>
+                        <h6 class="lang-zh">各類針梭織服裝</h6>
                     </div>
                 </div>
             </div>
@@ -174,31 +171,38 @@
 
     <section class="section-padding">
         <div class="container">
-            <h2 class="text-center fw-bold mb-5"><span class="lang-en">How We Work?</span><span class="lang-zh">服務流程</span></h2>
-            <div class="row g-4">
-                <div class="col-6 col-md-2 process-step">
+            <h2 class="text-center fw-bold mb-5 lang-en">How We Work?</h2>
+            <h2 class="text-center fw-bold mb-5 lang-zh">服務流程</h2>
+            <div class="row g-4 text-center">
+                <div class="col-6 col-md-2">
                     <div class="step-num">1</div>
-                    <p class="small fw-bold"><span class="lang-en">Samples/Designs</span><span class="lang-zh">獲取樣板/設計</span></p>
+                    <p class="small fw-bold lang-en">Samples/Designs</p>
+                    <p class="small fw-bold lang-zh">獲取樣板/設計</p>
                 </div>
-                <div class="col-6 col-md-2 process-step">
+                <div class="col-6 col-md-2">
                     <div class="step-num">2</div>
-                    <p class="small fw-bold"><span class="lang-en">Finalize Details</span><span class="lang-zh">落實細節</span></p>
+                    <p class="small fw-bold lang-en">Finalize Details</p>
+                    <p class="small fw-bold lang-zh">落實細節</p>
                 </div>
-                <div class="col-6 col-md-2 process-step">
+                <div class="col-6 col-md-2">
                     <div class="step-num">3</div>
-                    <p class="small fw-bold"><span class="lang-en">Quotation</span><span class="lang-zh">報價與打樣</span></p>
+                    <p class="small fw-bold lang-en">Quotation</p>
+                    <p class="small fw-bold lang-zh">報價與打樣</p>
                 </div>
-                <div class="col-6 col-md-2 process-step">
+                <div class="col-6 col-md-2">
                     <div class="step-num">4</div>
-                    <p class="small fw-bold"><span class="lang-en">Confirm Order</span><span class="lang-zh">確認訂單並付定</span></p>
+                    <p class="small fw-bold lang-en">Confirm Order</p>
+                    <p class="small fw-bold lang-zh">確認訂單</p>
                 </div>
-                <div class="col-6 col-md-2 process-step">
+                <div class="col-6 col-md-2">
                     <div class="step-num">5</div>
-                    <p class="small fw-bold"><span class="lang-en">Mass Production</span><span class="lang-zh">大貨生產與質檢</span></p>
+                    <p class="small fw-bold lang-en">Mass Production</p>
+                    <p class="small fw-bold lang-zh">大貨生產</p>
                 </div>
-                <div class="col-6 col-md-2 process-step">
+                <div class="col-6 col-md-2">
                     <div class="step-num">6</div>
-                    <p class="small fw-bold"><span class="lang-en">Deliver Goods</span><span class="lang-zh">成品交付</span></p>
+                    <p class="small fw-bold lang-en">Deliver Goods</p>
+                    <p class="small fw-bold lang-zh">成品交付</p>
                 </div>
             </div>
         </div>
@@ -206,61 +210,74 @@
 
     <section class="parallax-banner">
         <div class="container">
-            <h2 class="display-4 fw-bold mb-4">
-                <span class="lang-en">4,000 SQM Industrial Complex</span>
-                <span class="lang-zh">4,000 平方米現代化工業園區</span>
-            </h2>
-            <p class="fs-5 opacity-75">
-                <span class="lang-en">BSCI / SA8000 Certified Facilities with Intelligent Hanger System.</span>
-                <span class="lang-zh">獲得 BSCI 及 SA8000 國際認證，引入智能吊掛系統優化產能。</span>
-            </p>
+            <h2 class="display-4 fw-bold mb-4 lang-en">4,000 SQM Industrial Complex</h2>
+            <h2 class="display-4 fw-bold mb-4 lang-zh">4,000 平方米現代化工業園區</h2>
+            <p class="fs-5 opacity-75 lang-en">BSCI / SA8000 Certified Facilities with Intelligent Hanger System.</p>
+            <p class="fs-5 opacity-75 lang-zh">獲得 BSCI 及 SA8000 國際認證，引入智能吊掛系統優化產能。</p>
             <div class="row mt-5">
                 <div class="col-md-6 text-md-end border-md-end px-4">
                     <h4 class="text-gold">Guangdong Center</h4>
-                    <p>Mainly producing Denims and Cardigans / 主要生產牛仔及針織開衫</p>
+                    <p class="lang-en">Mainly producing Denims and Cardigans</p>
+                    <p class="lang-zh">主要生產牛仔及針織開衫</p>
                 </div>
                 <div class="col-md-6 text-md-start px-4">
                     <h4 class="text-gold">Fujian Center</h4>
-                    <p>Focused on Woven and Knits across different factories / 不同分廠專注梭織與針織</p>
+                    <p class="lang-en">Focused on Woven and Knits</p>
+                    <p class="lang-zh">分廠專注梭織與針織</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="section-padding bg-dark text-white">
-        <div class="container">
-            <div class="row g-5 justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="fw-bold mb-4">
-                        <span class="lang-en">Contact Our Team</span>
-                        <span class="lang-zh">聯繫華源</span>
-                    </h2>
-                    <p class="text-white-50 fs-5 mb-5">
-                        <span class="lang-en">Experienced in working with quality brands in leisure, lifestyle and functional sports sectors. Contact us directly for inquiries.</span>
-                        <span class="lang-zh">我們擁有與休閒、生活方式及功能性運動品牌合作的豐富經驗。歡迎直接聯繫我們洽談業務。</span>
-                    </p>
-                    
-                    <div class="row g-4 justify-content-center">
-                        <div class="col-md-5">
-                            <div class="p-4 border border-secondary">
-                                <i class="fa fa-envelope text-gold fa-2x mb-3"></i>
-                                <h5 class="text-white">Email</h5>
-                                <a href="mailto:wicky@wellyuen.com.hk" class="text-decoration-none text-white-50">wicky@wellyuen.com.hk</a>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="p-4 border border-secondary">
-                                <i class="fa fa-phone text-gold fa-2x mb-3"></i>
-                                <h5 class="text-white">Phone / WhatsApp</h5>
-                                <a href="tel:+85226113201" class="text-decoration-none text-white-50">(+852) 2611 3201</a>
-                            </div>
-                        </div>
+        <div class="container text-center">
+            <h2 class="fw-bold mb-4 lang-en">Contact Our Team</h2>
+            <h2 class="fw-bold mb-4 lang-zh">聯繫華源</h2>
+            <p class="text-white-50 mb-5 lang-en">Experienced in working with quality brands. Contact us directly for inquiries.</p>
+            <p class="text-white-50 mb-5 lang-zh">我們擁有豐富的品牌合作經驗。歡迎直接聯繫我們洽談業務。</p>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="p-4 border border-secondary">
+                        <i class="fa fa-envelope text-gold fa-2x mb-3"></i>
+                        <h5>Email</h5>
+                        <a href="mailto:wicky@wellyuen.com.hk" class="text-decoration-none text-white-50">wicky@wellyuen.com.hk</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 border border-secondary">
+                        <i class="fa fa-phone text-gold fa-2x mb-3"></i>
+                        <h5>Phone</h5>
+                        <a href="tel:+85226113201" class="text-decoration-none text-white-50">(+852) 2611 3201</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-4 bg-black text-white-50 text-center">
+    <footer class="py-5 bg-black text-white-50 text-center">
         <div class="container">
-            <img src="https://i.
+            <img src="https://i.ibb.co/3W6qWbH/wy-logo-fixed.png" alt="Well Yuen Logo" class="footer-logo">
+            <p class="small mb-0 lang-en">© 1991 - 2026 Well Yuen Garments Ltd. | BSCI & SA8000 Certified Manufacturer</p>
+            <p class="small mb-0 lang-zh">© 1991 - 2026 華源制衣有限公司 | BSCI 及 SA8000 認證製造商</p>
+        </div>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            document.body.setAttribute('lang', lang);
+            
+            // 更新按鈕狀態
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+            
+            localStorage.setItem('preferred_lang', lang);
+        }
+
+        window.onload = () => {
+            const savedLang = localStorage.getItem('preferred_lang') || 'en';
+            setLanguage(savedLang);
+        };
+    </script>
+</body>
+</html>

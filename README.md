@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Well Yuen Garments Ltd | 華源制衣有限公司</title>
+    <title>Well Yuen Garments Ltd | 華源製衣有限公司</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,13 +12,13 @@
         :root {
             --primary-dark: #0f1115;
             --accent-gold: #c5a059;
-            --overlay-dark: rgba(15, 17, 21, 0.8);
+            --overlay-dark: rgba(15, 17, 21, 0.75);
         }
 
         body { font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif; transition: 0.3s; color: #333; overflow-x: hidden; }
         html { scroll-behavior: smooth; }
         
-        /* 嚴格語言顯示邏輯 */
+        /* 語言切換邏輯 */
         [lang="en"] .lang-zh { display: none !important; }
         [lang="zh"] .lang-en { display: none !important; }
 
@@ -28,11 +28,12 @@
         .lang-switch .btn { color: #fff; border: 1px solid rgba(255,255,255,0.3); font-size: 0.75rem; padding: 4px 10px; margin-left: 5px; border-radius: 0; }
         .lang-switch .btn.active { background: var(--accent-gold); border-color: var(--accent-gold); }
 
-        /* 首屏 */
+        /* 第一頁：首屏背景改為公司上傳圖片 */
         .hero-section { 
             height: 100vh; 
             background: linear-gradient(var(--overlay-dark), var(--overlay-dark)), 
-                        url('https://images.unsplash.com/photo-1558600090-f73f709300c8?auto=format&fit=crop&q=80&w=2000');
+                        url('https://i.ibb.co/3W6qWbH/wy-logo-fixed.png'); /* 這裡會由瀏覽器加載您的圖片 */
+            background-image: linear-gradient(var(--overlay-dark), var(--overlay-dark)), url('https://raw.githubusercontent.com/yuen-garment/site/main/office.jpg'); /* 範例路徑 */
             background-size: cover; background-position: center; background-attachment: fixed;
             display: flex; align-items: center; color: white;
         }
@@ -45,7 +46,6 @@
         .advantage-card { background: #fff; padding: 40px; height: 100%; border-top: 4px solid var(--accent-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         
         /* 服務流程 */
-        .process-step { position: relative; padding: 20px; text-align: center; }
         .step-num { width: 40px; height: 40px; background: var(--accent-gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; }
 
         /* 視差橫幅 */
@@ -56,7 +56,7 @@
             background-size: cover; background-attachment: fixed; color: white; text-align: center;
         }
 
-        .btn-gold { background: var(--accent-gold); color: white; border-radius: 0; padding: 15px 40px; font-weight: 600; border: none; transition: 0.3s; text-decoration: none; }
+        .btn-gold { background: var(--accent-gold); color: white; border-radius: 0; padding: 15px 40px; font-weight: 600; border: none; transition: 0.3s; text-decoration: none; display: inline-block; }
         .btn-gold:hover { background: #b08d4a; color: white; transform: translateY(-3px); }
 
         .footer-logo { height: 35px; width: auto; margin-bottom: 15px; }
@@ -69,7 +69,7 @@
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="https://i.ibb.co/3W6qWbH/wy-logo-fixed.png" alt="Well Yuen Logo">
                 <span class="lang-en fw-bold">WELL YUEN <small style="font-weight:300;">Garments</small></span>
-                <span class="lang-zh fw-bold">華源制衣 <small style="font-weight:300;">有限公司</small></span>
+                <span class="lang-zh fw-bold">華源製衣 <small style="font-weight:300;">有限公司</small></span>
             </a>
             <div class="ms-auto d-flex align-items-center">
                 <div class="lang-switch">
@@ -80,7 +80,7 @@
         </div>
     </nav>
 
-    <header class="hero-section">
+    <header class="hero-section" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://raw.githubusercontent.com/yuen-garment/site/main/office.jpg');">
         <div class="container">
             <div class="lang-en">
                 <h1 class="display-1 fw-bold mb-4">Looking for the right factory?</h1>
@@ -89,7 +89,7 @@
             </div>
             <div class="lang-zh">
                 <h1 class="display-2 fw-bold mb-4">正在尋找理想的工廠？</h1>
-                <p class="fs-3 text-white-50 mb-5">華源制衣成立於 1991 年。三十載深耕，為全球品牌提供卓越製造服務。</p>
+                <p class="fs-3 text-white-50 mb-5">華源製衣成立於 1991 年。三十載深耕，為全球品牌提供卓越製造服務。</p>
                 <a href="#contact" class="btn btn-gold">立即聯絡我們</a>
             </div>
         </div>
@@ -101,11 +101,11 @@
                 <div class="col-lg-6">
                     <div class="lang-en">
                         <h2 class="display-5 fw-bold mb-4">Our Advantage</h2>
-                        <p class="text-muted">We specialize in providing high quality garments to various sectors at highly competitive prices. Our three factories cover most types of woven and knit items.</p>
+                        <p class="text-muted">We specialize in providing high quality garments to various sectors at highly competitive prices. Our factory facilities cover most types of woven and knit items.</p>
                     </div>
                     <div class="lang-zh">
                         <h2 class="display-4 fw-bold mb-4">我們的優勢</h2>
-                        <p class="text-muted">我們致力於以極具競爭力的價格為各行業提供高品質服飾。旗下三家工廠產線全面，涵蓋絕大多數梭織與針織品類。</p>
+                        <p class="text-muted">我們致力於以極具競爭力的價格為各行業提供高品質服飾。旗下工廠產線全面，涵蓋絕大多數梭織與針織品類。</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -169,45 +169,6 @@
         </div>
     </section>
 
-    <section class="section-padding">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-5 lang-en">How We Work?</h2>
-            <h2 class="text-center fw-bold mb-5 lang-zh">服務流程</h2>
-            <div class="row g-4 text-center">
-                <div class="col-6 col-md-2">
-                    <div class="step-num">1</div>
-                    <p class="small fw-bold lang-en">Samples/Designs</p>
-                    <p class="small fw-bold lang-zh">獲取樣板/設計</p>
-                </div>
-                <div class="col-6 col-md-2">
-                    <div class="step-num">2</div>
-                    <p class="small fw-bold lang-en">Finalize Details</p>
-                    <p class="small fw-bold lang-zh">落實細節</p>
-                </div>
-                <div class="col-6 col-md-2">
-                    <div class="step-num">3</div>
-                    <p class="small fw-bold lang-en">Quotation</p>
-                    <p class="small fw-bold lang-zh">報價與打樣</p>
-                </div>
-                <div class="col-6 col-md-2">
-                    <div class="step-num">4</div>
-                    <p class="small fw-bold lang-en">Confirm Order</p>
-                    <p class="small fw-bold lang-zh">確認訂單</p>
-                </div>
-                <div class="col-6 col-md-2">
-                    <div class="step-num">5</div>
-                    <p class="small fw-bold lang-en">Mass Production</p>
-                    <p class="small fw-bold lang-zh">大貨生產</p>
-                </div>
-                <div class="col-6 col-md-2">
-                    <div class="step-num">6</div>
-                    <p class="small fw-bold lang-en">Deliver Goods</p>
-                    <p class="small fw-bold lang-zh">成品交付</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="parallax-banner">
         <div class="container">
             <h2 class="display-4 fw-bold mb-4 lang-en">4,000 SQM Industrial Complex</h2>
@@ -216,20 +177,22 @@
             <p class="fs-5 opacity-75 lang-zh">獲得 BSCI 及 SA8000 國際認證，引入智能吊掛系統優化產能。</p>
             <div class="row mt-5">
                 <div class="col-md-6 text-md-end border-md-end px-4">
-                    <h4 class="text-gold">Guangdong Center</h4>
+                    <h4 class="text-gold lang-en">Guangdong Factory</h4>
+                    <h4 class="text-gold lang-zh">廣東工廠</h4>
                     <p class="lang-en">Mainly producing Denims and Cardigans</p>
                     <p class="lang-zh">主要生產牛仔及針織開衫</p>
                 </div>
                 <div class="col-md-6 text-md-start px-4">
-                    <h4 class="text-gold">Fujian Center</h4>
-                    <p class="lang-en">Focused on Woven and Knits</p>
-                    <p class="lang-zh">分廠專注梭織與針織</p>
+                    <h4 class="text-gold lang-en">Fujian Factory</h4>
+                    <h4 class="text-gold lang-zh">福建工廠</h4>
+                    <p class="lang-en">Focused on Woven and Knits across specialized units</p>
+                    <p class="lang-zh">分廠專注梭織與針織生產</p>
                 </div>
             </div>
         </div>
     </section>
 
-<section id="contact" class="section-padding bg-dark text-white">
+    <section id="contact" class="section-padding bg-dark text-white">
         <div class="container text-center">
             <h2 class="fw-bold mb-4 lang-en">Contact Our Team</h2>
             <h2 class="fw-bold mb-4 lang-zh">聯繫華源</h2>
@@ -264,7 +227,7 @@
                 <p class="small mb-0">© 1991 - 2026 | BSCI & SA8000 Certified Manufacturer</p>
             </div>
             <div class="lang-zh">
-                <p class="small mb-1">華源制衣有限公司</p>
+                <p class="small mb-1">華源製衣有限公司</p>
                 <p class="small mb-0">© 1991 - 2026 | BSCI 及 SA8000 認證製造商</p>
             </div>
         </div>
@@ -273,11 +236,8 @@
     <script>
         function setLanguage(lang) {
             document.body.setAttribute('lang', lang);
-            
-            // 更新按鈕狀態
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
-            
             localStorage.setItem('preferred_lang', lang);
         }
 

@@ -27,9 +27,9 @@
         .lang-switch .btn { color: #fff; border: 1px solid rgba(255,255,255,0.3); font-size: 0.75rem; padding: 4px 10px; margin-left: 5px; border-radius: 0; }
         .lang-switch .btn.active { background: var(--accent-gold); border-color: var(--accent-gold); }
 
-        /* Hero Section - 縮小高度並強化 Logo */
+        /* Hero Section - 縮小高度並強化視覺中心 */
         .hero-section { 
-            height: 75vh; /* 縮小高度，讓首屏能看到下方內容標題 */
+            height: 75vh; 
             min-height: 550px;
             background: linear-gradient(var(--overlay-dark), var(--overlay-dark)), 
                         url('https://i.postimg.cc/wT6Bwt7T/WY-pic.jpg');
@@ -39,7 +39,7 @@
             text-align: center;
             padding-top: 70px;
         }
-        .hero-logo-big { width: 100px; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(0,0,0,0.3)); }
+        .hero-logo-big { width: 110px; margin-bottom: 25px; filter: drop-shadow(0 0 20px rgba(0,0,0,0.4)); }
         .hero-content { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 20px; }
 
         /* Section Commons */
@@ -65,24 +65,20 @@
         }
         .product-card:hover { transform: translateY(-10px); }
 
-        /* Feature List */
+        /* Feature Icons */
         .feature-icon-small { font-size: 1.5rem; color: var(--accent-gold); margin-right: 15px; }
 
-        /* Steps */
-        .step-num { 
-            width: 50px; height: 50px; background: var(--accent-gold); color: white; 
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-            margin: 0 auto 20px; font-weight: bold;
-        }
-
-        /* Footer & Contact */
-        .contact-box { background: rgba(255,255,255,0.05); padding: 35px; border: 1px solid rgba(255,255,255,0.1); border-radius: 5px; height: 100%; }
+        /* Contact & Footer */
+        .contact-box { background: rgba(255,255,255,0.05); padding: 35px; border: 1px solid rgba(255,255,255,0.1); border-radius: 5px; height: 100%; transition: 0.3s; }
+        .contact-box:hover { border-color: var(--accent-gold); }
+        .address-text { font-size: 0.95rem; line-height: 1.8; color: rgba(255,255,255,0.7); }
+        
         .btn-gold { background: var(--accent-gold); color: white; border-radius: 0; padding: 14px 40px; font-weight: 600; border: none; transition: 0.3s; text-decoration: none; display: inline-block; }
         .btn-gold:hover { background: #b08d4a; color: white; transform: translateY(-3px); }
 
         @media (max-width: 768px) {
             .hero-section { height: 85vh; }
-            .hero-content h1 { font-size: 2rem !important; }
+            .hero-content h1 { font-size: 1.8rem !important; }
         }
     </style>
 </head>
@@ -109,13 +105,13 @@
             <img src="https://i.ibb.co/3W6qWbH/wy-logo-fixed.png" alt="Well Yuen Logo" class="hero-logo-big">
             <div class="lang-en">
                 <h1 class="display-3 fw-bold mb-3">WELL YUEN Garments Ltd.</h1>
-                <p class="fs-5 text-white-75 mb-5">Since 1991. Professional Manufacturing Partner for Global Apparel Brands.</p>
-                <a href="#contact" class="btn btn-gold">CONTACT US NOW</a>
+                <p class="fs-5 text-white-75 mb-5">Professional Apparel Manufacturing Partner Since 1991.</p>
+                <a href="#contact" class="btn btn-gold">CONTACT US</a>
             </div>
             <div class="lang-zh">
                 <h1 class="display-3 fw-bold mb-3">華源製衣有限公司</h1>
-                <p class="fs-4 text-white-75 mb-5">始於 1991 年。全球服飾品牌的專業製造合作夥伴。</p>
-                <a href="#contact" class="btn btn-gold">立即聯絡我們</a>
+                <p class="fs-4 text-white-75 mb-5">始於 1991 年。您最值得信賴的專業服飾製造夥伴。</p>
+                <a href="#contact" class="btn btn-gold">立即洽詢</a>
             </div>
         </div>
     </header>
@@ -124,26 +120,26 @@
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    <h6 class="text-gold fw-bold mb-3 lang-en">ESTABLISHED 1991</h6>
-                    <h6 class="text-gold fw-bold mb-3 lang-zh">始於 1991 年</h6>
-                    <h2 class="display-5 fw-bold mb-4 lang-en">Mastery in Every Stitch</h2>
-                    <h2 class="display-5 fw-bold mb-4 lang-zh">傳承三十載，定義卓越製造</h2>
-                    <p class="text-muted mb-4 lang-en">Well Yuen Garments has been a trusted manufacturer for over 30 years. From our Hong Kong headquarters to our advanced production bases, we combine craftsmanship with modern technology.</p>
-                    <p class="text-muted mb-4 lang-zh">華源製衣深耕行業逾三十載。從香港總部到現代化生產基地，我們將匠心工藝與尖端技術相結合，為全球客戶提供高品質的服裝解決方案。</p>
+                    <h6 class="text-gold fw-bold mb-3 lang-en">OUR HERITAGE</h6>
+                    <h6 class="text-gold fw-bold mb-3 lang-zh">公司傳承</h6>
+                    <h2 class="display-5 fw-bold mb-4 lang-en">30+ Years of Excellence</h2>
+                    <h2 class="display-5 fw-bold mb-4 lang-zh">三十載深耕，成就卓越</h2>
+                    <p class="text-muted lang-en">Established in 1991, Well Yuen Garments has grown into a leader in garment production, serving prestigious global brands with unwavering quality and social compliance.</p>
+                    <p class="text-muted lang-zh">華源製衣成立於 1991 年。我們以香港為管理核心，憑藉卓越的品質控管與國際合規認證，成為全球眾多知名品牌的長期戰略合作工廠。</p>
                     <div class="d-flex gap-5 mt-5">
                         <div class="stat-item">
                             <h3 class="fw-bold">35+</h3>
-                            <small class="text-muted lang-en">Years Experience</small>
-                            <small class="text-muted lang-zh">產業經驗</small>
+                            <small class="text-muted lang-en">Years of Mastery</small>
+                            <small class="text-muted lang-zh">產業資歷</small>
                         </div>
                         <div class="stat-item border-start ps-4">
                             <h3 class="fw-bold text-gold">BSCI</h3>
                             <small class="text-muted lang-en">SA8000 Certified</small>
-                            <small class="text-muted lang-zh">合規生產認證</small>
+                            <small class="text-muted lang-zh">國際生產認證</small>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 text-center">
+                <div class="col-lg-6">
                     <div class="image-overlay-box">
                         <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&q=80&w=800" class="img-fluid rounded" alt="Factory">
                     </div>
@@ -152,88 +148,35 @@
         </div>
     </section>
 
-    <section id="products" class="section-padding bg-light-gray">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-5 lang-en">Product Expertise</h2>
-            <h2 class="fw-bold mb-5 lang-zh">核心產品範圍</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <i class="fa-solid fa-vest-patches text-gold fa-3x mb-4"></i>
-                        <h4 class="fw-bold lang-en">Denim & Woven</h4>
-                        <h4 class="fw-bold lang-zh">丹寧與梭織</h4>
-                        <p class="small text-muted">Jeans, Jackets, & Workwear with specialized washing effects.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <i class="fa-solid fa-shirt text-gold fa-3x mb-4"></i>
-                        <h4 class="fw-bold lang-en">Knitwear</h4>
-                        <h4 class="fw-bold lang-zh">針織毛衫</h4>
-                        <p class="small text-muted">Multi-gauge sweaters and cardigans using automated machinery.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <i class="fa-solid fa-person-running text-gold fa-3x mb-4"></i>
-                        <h4 class="fw-bold lang-en">Active & Casual</h4>
-                        <h4 class="fw-bold lang-zh">運動與休閒</h4>
-                        <p class="small text-muted">Performance hoodies, Polo shirts, and comfortable jerseys.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding bg-white">
+    <section class="section-padding bg-light-gray">
         <div class="container">
             <div class="row g-5">
-                <div class="col-lg-5">
-                    <h2 class="fw-bold lang-en">Why Choose Us?</h2>
-                    <h2 class="fw-bold lang-zh">為何選擇我們？</h2>
-                    <p class="text-muted lang-en">We understand the requirements of modern global brands.</p>
-                    <p class="text-muted lang-zh">我們深諳全球化品牌對品質與效率的要求。</p>
+                <div class="col-lg-4">
+                    <h2 class="fw-bold lang-en">Why Partner With Us?</h2>
+                    <h2 class="fw-bold lang-zh">為何選擇華源？</h2>
+                    <div class="bg-gold mt-3" style="width: 50px; height: 3px;"></div>
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-8">
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="d-flex align-items-start">
                                 <i class="fa-solid fa-leaf feature-icon-small"></i>
-                                <div><h6 class="fw-bold lang-en">Eco-Friendly</h6><h6 class="fw-bold lang-zh">永續發展</h6><p class="small text-muted lang-zh">提供環保面料選擇。</p></div>
+                                <div>
+                                    <h6 class="fw-bold lang-en">Sustainability</h6><h6 class="fw-bold lang-zh">永續面料</h6>
+                                    <p class="small text-muted lang-zh">提供有機棉與再生纖維等環保方案。</p>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex align-items-start">
-                                <i class="fa-solid fa-boxes-stacked feature-icon-small"></i>
-                                <div><h6 class="fw-bold lang-en">Flexible MOQ</h6><h6 class="fw-bold lang-zh">靈活訂量</h6><p class="small text-muted lang-zh">支持不同規模生產。</p></div>
+                                <i class="fa-solid fa-check-double feature-icon-small"></i>
+                                <div>
+                                    <h6 class="fw-bold lang-en">Quality First</h6><h6 class="fw-bold lang-zh">品質至上</h6>
+                                    <p class="small text-muted lang-zh">嚴格的三道品檢工序，確保零瑕疵交貨。</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding bg-light-gray text-center">
-        <div class="container">
-            <h2 class="fw-bold mb-5 lang-en">How We Work</h2>
-            <h2 class="fw-bold mb-5 lang-zh">合作流程</h2>
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="step-num">01</div>
-                    <h6 class="fw-bold lang-en">Inquiry</h6><h6 class="fw-bold lang-zh">需求洽談</h6>
-                </div>
-                <div class="col-md-3">
-                    <div class="step-num">02</div>
-                    <h6 class="fw-bold lang-en">Sampling</h6><h6 class="fw-bold lang-zh">開發打樣</h6>
-                </div>
-                <div class="col-md-3">
-                    <div class="step-num">03</div>
-                    <h6 class="fw-bold lang-en">Production</h6><h6 class="fw-bold lang-zh">批量生產</h6>
-                </div>
-                <div class="col-md-3">
-                    <div class="step-num">04</div>
-                    <h6 class="fw-bold lang-en">Delivery</h6><h6 class="fw-bold lang-zh">品檢交貨</h6>
                 </div>
             </div>
         </div>
@@ -241,38 +184,41 @@
 
     <section id="contact" class="section-padding bg-dark text-white text-center">
         <div class="container">
-            <h2 class="fw-bold mb-5 lang-en">Contact Us</h2>
-            <h2 class="fw-bold mb-5 lang-zh">聯絡我們</h2>
+            <h2 class="fw-bold mb-5 lang-en">Get In Touch</h2>
+            <h2 class="fw-bold mb-5 lang-zh">與我們聯絡</h2>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="contact-box">
-                        <i class="fa fa-envelope text-gold mb-3"></i>
-                        <p class="small mb-0">wicky@wellyuen.com.hk</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="contact-box">
-                        <i class="fa fa-phone text-gold mb-3"></i>
-                        <p class="small mb-0">(+852) 2611 3201</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="contact-box">
-                        <i class="fa fa-location-dot text-gold mb-3"></i>
-                        <p class="address-text text-white-50">
+                        <i class="fa fa-map-marker-alt text-gold mb-4 fa-2x"></i>
+                        <h5 class="fw-bold mb-3 lang-en">Office Address</h5><h5 class="fw-bold mb-3 lang-zh">辦事處地址</h5>
+                        <p class="address-text">
                             1802 Million Fortune Industrial Centre,<br>
                             34-36 Chai Wan Kok Street,<br>
                             Tsuen Wan, New Territories, Hong Kong
                         </p>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="contact-box">
+                        <i class="fa fa-envelope text-gold mb-4 fa-2x"></i>
+                        <h5 class="fw-bold mb-3">Email</h5>
+                        <p class="fs-5"><a href="mailto:wicky@wellyuen.com.hk" class="text-white-50 text-decoration-none">wicky@wellyuen.com.hk</a></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-box">
+                        <i class="fa fa-phone text-gold mb-4 fa-2x"></i>
+                        <h5 class="fw-bold mb-3 lang-en">Call Us</h5><h5 class="fw-bold mb-3 lang-zh">致電我們</h5>
+                        <p class="fs-5 text-white-50">(+852) 2611 3201</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-4 bg-black text-center text-white-50">
+    <footer class="py-4 bg-black text-center text-white-50 border-top border-secondary">
         <div class="container">
-            <p class="small mb-0">© 1991-2026 Well Yuen Garments Ltd. | BSCI & SA8000 Certified</p>
+            <p class="small mb-0">© 1991-2026 Well Yuen Garments Ltd. | BSCI & SA8000 Certified Manufacturer</p>
         </div>
     </footer>
 
